@@ -1,9 +1,9 @@
 class Match
-  def host_name
+  def host
     @match_values[2]
   end
 
-  def visitor_name
+  def visitor
     @match_values[3]
   end
 
@@ -15,17 +15,16 @@ class Match
     @match_values[5]
   end
 
-
   def initialize(match_line)
     @match_values = match_line.split(',')
   end
 
   def is_host(club_name)
-    host_name == club_name
+    host == club_name
   end
 
   def is_visitor(club_name)
-    visitor_name == club_name
+    visitor == club_name
   end
 
   def is_winner(club_name)

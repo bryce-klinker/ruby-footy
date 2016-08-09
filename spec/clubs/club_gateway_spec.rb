@@ -16,5 +16,10 @@ describe 'ClubGateway' do
       clubs = @club_gateway.getAll
       expect(clubs[0][:name]).to eq('Arsenal')
     end
+
+    it 'should get wins for club' do
+      clubs = @club_gateway.getAll
+      expect(clubs[0][:wins]).to eql(20)
+    end
   end
 end

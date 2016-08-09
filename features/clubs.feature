@@ -9,3 +9,4 @@ Feature: Get clubs in the Premier League
     When I get all clubs
     Then I should get Premier League clubs for the 2015/2016 season
     Then I should get each club's name
+    Then I should get each club's number of wins

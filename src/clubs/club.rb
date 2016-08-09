@@ -13,6 +13,11 @@ class Club
           .length
   end
 
+  def losses
+    @all_matches.select{ |m| m.is_loser name }
+        .length
+  end
+
   def initialize(name, all_matches)
     @name = name
     @all_matches = all_matches

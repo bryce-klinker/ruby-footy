@@ -15,13 +15,6 @@ class Match
     @match_values[5]
   end
 
-  def is_visitor_winner
-    visitor_score > host_score
-  end
-
-  def is_host_winner
-    host_score > visitor_score
-  end
 
   def initialize(match_line)
     @match_values = match_line.split(',')
@@ -37,11 +30,11 @@ class Match
 
   def is_winner(club_name)
     if is_host club_name
-      return is_host_winner
+      return host_score > visitor_score
     end
 
     if is_visitor club_name
-      return is_visitor_winner
+      return visitor_score > host_score
     end
 
     false
@@ -53,5 +46,17 @@ class Match
     end
 
     false
+  end
+
+  def is_loser(club_name)
+    if is_host club_name
+      return host_score < visitor_score
+    end
+
+    if is_visitor club_name
+      return visitor_score < host_score
+    end
+
+    return false
   end
 end

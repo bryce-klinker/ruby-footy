@@ -90,7 +90,7 @@ Then(/^I should get each club's number of losses$/) do
   expect_club_to_have_losses 'Tottenham', 6
   expect_club_to_have_losses 'Man City', 10
   expect_club_to_have_losses 'Man United', 10
-  expect_club_to_have_losses 'Southampton', 1
+  expect_club_to_have_losses 'Southampton', 11
   expect_club_to_have_losses 'West Ham', 8
   expect_club_to_have_losses 'Liverpool', 10
   expect_club_to_have_losses 'Stoke', 15

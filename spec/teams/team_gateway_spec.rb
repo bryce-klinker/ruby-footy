@@ -1,4 +1,4 @@
-require File.expand_path '../../src/teams/team_gateway.rb', __FILE__
+require './src/teams/team_gateway'
 
 describe 'TeamGateway' do
   before do
@@ -7,7 +7,9 @@ describe 'TeamGateway' do
   end
 
   describe 'getAll' do
-    teams = @team_gateway.getAll
-    expect(teams.size).to equal(20)
+    it 'should get all teams' do
+      teams = @team_gateway.getAll
+      expect(teams.size).to equal(20)
+    end
   end
 end

@@ -1,4 +1,4 @@
-require '../../src/teams/team_gateway.rb'
+require './src/teams/team_gateway'
 
 Given(/^2015\/2016 Premier League data$/) do
   @csvPath = File.expand_path '../../data/csv/2015_2016_Premier_League_Results.csv', __FILE__
@@ -6,7 +6,7 @@ end
 
 When(/^I get all teams$/) do
   teamParser = TeamGateway.new @csvPath
-  @teams = teamParser.getTeams
+  @teams = teamParser.getAll
 end
 
 Then(/^I should get Premier League teams for the 2015\/2016 season$/) do

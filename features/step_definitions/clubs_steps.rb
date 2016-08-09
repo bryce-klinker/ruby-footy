@@ -130,27 +130,50 @@ Then(/^I should get each club's point total$/) do
   expect_club_to_have_points 'Aston Villa', 17
 end
 
-Then(/^I should get each club's goals against count$/) do
-  expect_club_to_have_goals_against 'Leicester', 36
-  expect_club_to_have_goals_against 'Arsenal', 36
-  expect_club_to_have_goals_against 'Tottenham', 35
-  expect_club_to_have_goals_against 'Man City', 41
-  expect_club_to_have_goals_against 'Man United', 35
-  expect_club_to_have_goals_against 'Southampton', 41
-  expect_club_to_have_goals_against 'West Ham', 51
-  expect_club_to_have_goals_against 'Liverpool', 50
-  expect_club_to_have_goals_against 'Stoke', 55
-  expect_club_to_have_goals_against 'Chelsea', 53
-  expect_club_to_have_goals_against 'Everton', 55
-  expect_club_to_have_goals_against 'Swansea', 52
-  expect_club_to_have_goals_against 'Watford', 50
-  expect_club_to_have_goals_against 'West Brom', 48
-  expect_club_to_have_goals_against 'Crystal Palace', 51
-  expect_club_to_have_goals_against 'Bournemouth', 67
-  expect_club_to_have_goals_against 'Sunderland', 62
-  expect_club_to_have_goals_against 'Newcastle', 65
-  expect_club_to_have_goals_against 'Norwich', 67
-  expect_club_to_have_goals_against 'Aston Villa', 76
+Then(/^I should get each club's goals allowed count$/) do
+  expect_club_to_have_goals_allowed 'Leicester', 36
+  expect_club_to_have_goals_allowed 'Arsenal', 36
+  expect_club_to_have_goals_allowed 'Tottenham', 35
+  expect_club_to_have_goals_allowed 'Man City', 41
+  expect_club_to_have_goals_allowed 'Man United', 35
+  expect_club_to_have_goals_allowed 'Southampton', 41
+  expect_club_to_have_goals_allowed 'West Ham', 51
+  expect_club_to_have_goals_allowed 'Liverpool', 50
+  expect_club_to_have_goals_allowed 'Stoke', 55
+  expect_club_to_have_goals_allowed 'Chelsea', 53
+  expect_club_to_have_goals_allowed 'Everton', 55
+  expect_club_to_have_goals_allowed 'Swansea', 52
+  expect_club_to_have_goals_allowed 'Watford', 50
+  expect_club_to_have_goals_allowed 'West Brom', 48
+  expect_club_to_have_goals_allowed 'Crystal Palace', 51
+  expect_club_to_have_goals_allowed 'Bournemouth', 67
+  expect_club_to_have_goals_allowed 'Sunderland', 62
+  expect_club_to_have_goals_allowed 'Newcastle', 65
+  expect_club_to_have_goals_allowed 'Norwich', 67
+  expect_club_to_have_goals_allowed 'Aston Villa', 76
+end
+
+Then(/^I should get each club's goals scored count$/) do
+  expect_club_to_have_goals_scored 'Leicester', 68
+  expect_club_to_have_goals_scored 'Arsenal', 65
+  expect_club_to_have_goals_scored 'Tottenham', 69
+  expect_club_to_have_goals_scored 'Man City', 71
+  expect_club_to_have_goals_scored 'Man United', 49
+  expect_club_to_have_goals_scored 'Southampton', 59
+  expect_club_to_have_goals_scored 'West Ham', 65
+  expect_club_to_have_goals_scored 'Liverpool', 63
+  expect_club_to_have_goals_scored 'Stoke', 41
+  expect_club_to_have_goals_scored 'Chelsea', 59
+  expect_club_to_have_goals_scored 'Everton', 59
+  expect_club_to_have_goals_scored 'Swansea', 42
+  expect_club_to_have_goals_scored 'Watford', 40
+  expect_club_to_have_goals_scored 'West Brom', 34
+  expect_club_to_have_goals_scored 'Crystal Palace', 39
+  expect_club_to_have_goals_scored 'Bournemouth', 45
+  expect_club_to_have_goals_scored 'Sunderland', 48
+  expect_club_to_have_goals_scored 'Newcastle', 44
+  expect_club_to_have_goals_scored 'Norwich', 39
+  expect_club_to_have_goals_scored 'Aston Villa', 27
 end
 
 def get_club_by_name(club_name)
@@ -177,7 +200,12 @@ def expect_club_to_have_points(club_name, points)
   expect(club.points).to eql points
 end
 
-def expect_club_to_have_goals_against(club_name, goals_against)
+def expect_club_to_have_goals_allowed(club_name, goals_allowed)
   club = get_club_by_name club_name
-  expect(club.goals_against).to eql goals_against
+  expect(club.goals_allowed).to eql goals_allowed
+end
+
+def expect_club_to_have_goals_scored(club_name, goals_scored)
+  club = get_club_by_name club_name
+  expect(club.goals_scored).to eql goals_scored
 end

@@ -37,9 +37,14 @@ describe 'ClubGateway' do
       expect(clubs[0].points).to eql 71
     end
 
-    it 'should get goals against for club' do
+    it 'should get goals allowed for club' do
       clubs = @club_gateway.getAll
-      expect(clubs[0].goals_against).to eql 36
+      expect(clubs[0].goals_allowed).to eql 36
+    end
+
+    it 'should get goals scored for club' do
+      clubs = @club_gateway.getAll
+      expect(clubs[0].goals_scored).to eql 65
     end
   end
 end

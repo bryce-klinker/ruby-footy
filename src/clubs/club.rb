@@ -22,7 +22,7 @@ class Club
     wins * 3 + draws
   end
 
-  def goals_against
+  def goals_allowed
     allowed = 0
     @all_matches.map{ |m| m.allowed name }
       .each{ |a| allowed += a }

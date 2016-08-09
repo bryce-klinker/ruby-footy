@@ -34,4 +34,16 @@ class Match
   def is_visitor(clubName)
     return visitor_name == clubName
   end
+
+  def is_winner(clubName)
+    if is_host clubName
+      return is_host_winner
+    end
+
+    if is_visitor clubName
+      return is_visitor_winner
+    end
+
+    return false
+  end
 end

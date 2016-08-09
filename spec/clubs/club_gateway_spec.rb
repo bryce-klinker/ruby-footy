@@ -46,5 +46,10 @@ describe 'ClubGateway' do
       clubs = @club_gateway.getAll
       expect(clubs[0].goals_scored).to eql 65
     end
+
+    it 'should get goal differential for club' do
+      clubs = @club_gateway.getAll
+      expect(clubs[0].goal_differential).to eql 29
+    end
   end
 end

@@ -14,3 +14,4 @@ Feature: Get clubs in the Premier League
     Then I should get each club's point total
     Then I should get each club's goals allowed count
     Then I should get each club's goals scored count
+    Then I should get each club's goal differential

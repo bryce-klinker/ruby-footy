@@ -176,6 +176,29 @@ Then(/^I should get each club's goals scored count$/) do
   expect_club_to_have_goals_scored 'Aston Villa', 27
 end
 
+Then(/^I should get each club's goal differential$/) do
+  expect_club_to_have_goal_differential 'Leicester', 32
+  expect_club_to_have_goal_differential 'Arsenal', 29
+  expect_club_to_have_goal_differential 'Tottenham', 34
+  expect_club_to_have_goal_differential 'Man City', 30
+  expect_club_to_have_goal_differential 'Man United', 14
+  expect_club_to_have_goal_differential 'Southampton', 18
+  expect_club_to_have_goal_differential 'West Ham', 14
+  expect_club_to_have_goal_differential 'Liverpool', 13
+  expect_club_to_have_goal_differential 'Stoke', -14
+  expect_club_to_have_goal_differential 'Chelsea', 6
+  expect_club_to_have_goal_differential 'Everton', 4
+  expect_club_to_have_goal_differential 'Swansea', -10
+  expect_club_to_have_goal_differential 'Watford', -10
+  expect_club_to_have_goal_differential 'West Brom', -14
+  expect_club_to_have_goal_differential 'Crystal Palace', -12
+  expect_club_to_have_goal_differential 'Bournemouth', -22
+  expect_club_to_have_goal_differential 'Sunderland', -14
+  expect_club_to_have_goal_differential 'Newcastle', -21
+  expect_club_to_have_goal_differential 'Norwich', -28
+  expect_club_to_have_goal_differential 'Aston Villa', -49
+end
+
 def get_club_by_name(club_name)
   @clubs.select { |c| c.name == club_name }.first
 end
@@ -208,4 +231,9 @@ end
 def expect_club_to_have_goals_scored(club_name, goals_scored)
   club = get_club_by_name club_name
   expect(club.goals_scored).to eql goals_scored
+end
+
+def expect_club_to_have_goal_differential(club_name, goal_differential)
+  club = get_club_by_name club_name
+  expect(club.goal_differential).to eql goal_differential
 end

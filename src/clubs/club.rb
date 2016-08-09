@@ -36,6 +36,10 @@ class Club
     scored
   end
 
+  def goal_differential
+    goals_scored - goals_allowed
+  end
+
   def initialize(name, all_matches)
     @name = name
     @all_matches = all_matches

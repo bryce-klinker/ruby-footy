@@ -12,3 +12,4 @@ Feature: Get clubs in the Premier League
     Then I should get each club's number of wins
     Then I should get each club's number of draws
     Then I should get each club's number of losses
+    Then I should get each club's point total

@@ -31,5 +31,10 @@ describe 'ClubGateway' do
       clubs = @club_gateway.getAll
       expect(clubs[0].losses).to eql 7
     end
+
+    it 'should get points for club' do
+      clubs = @club_gateway.getAll
+      expect(clubs[0].points).to eql 71
+    end
   end
 end

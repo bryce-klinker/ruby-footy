@@ -107,6 +107,29 @@ Then(/^I should get each club's number of losses$/) do
   expect_club_to_have_losses 'Aston Villa', 27
 end
 
+Then(/^I should get each club's point total$/) do
+  expect_club_to_have_points 'Leicester', 81
+  expect_club_to_have_points 'Arsenal', 71
+  expect_club_to_have_points 'Tottenham', 70
+  expect_club_to_have_points 'Man City', 66
+  expect_club_to_have_points 'Man United', 66
+  expect_club_to_have_points 'Southampton', 63
+  expect_club_to_have_points 'West Ham', 62
+  expect_club_to_have_points 'Liverpool', 60
+  expect_club_to_have_points 'Stoke', 51
+  expect_club_to_have_points 'Chelsea', 50
+  expect_club_to_have_points 'Everton', 47
+  expect_club_to_have_points 'Swansea', 47
+  expect_club_to_have_points 'Watford', 45
+  expect_club_to_have_points 'West Brom', 43
+  expect_club_to_have_points 'Crystal Palace', 42
+  expect_club_to_have_points 'Bournemouth', 42
+  expect_club_to_have_points 'Sunderland', 39
+  expect_club_to_have_points 'Newcastle', 37
+  expect_club_to_have_points 'Norwich', 34
+  expect_club_to_have_points 'Aston Villa', 17
+end
+
 def get_club_by_name(club_name)
   @clubs.select { |c| c.name == club_name }.first
 end
@@ -124,4 +147,9 @@ end
 def expect_club_to_have_losses(club_name, losses)
   club = get_club_by_name club_name
   expect(club.losses).to eql losses
+end
+
+def expect_club_to_have_points(club_name, points)
+  club = get_club_by_name club_name
+  expect(club.points).to eql points
 end

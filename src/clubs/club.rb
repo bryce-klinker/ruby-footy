@@ -18,6 +18,10 @@ class Club
         .length
   end
 
+  def points
+    return wins * 3 + draws
+  end
+
   def initialize(name, all_matches)
     @name = name
     @all_matches = all_matches

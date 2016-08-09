@@ -1,4 +1,4 @@
-require './src/referees/refereee_gateway'
+require './src/referees/referee_gateway'
 
 When(/^I get all referees$/) do
   @refereee_gateway = RefereeGateway.new $csv_path

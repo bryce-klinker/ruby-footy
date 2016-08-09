@@ -70,4 +70,16 @@ class Match
 
     0
   end
+
+  def scored(club_name)
+    if is_host club_name
+      return host_score
+    end
+
+    if is_visitor club_name
+      return visitor_score
+    end
+
+    0
+  end
 end

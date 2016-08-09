@@ -29,6 +29,13 @@ class Club
     allowed
   end
 
+  def goals_scored
+    scored = 0
+    @all_matches.map{ |m| m.scored name }
+      .each{ |s| scored += s }
+    scored
+  end
+
   def initialize(name, all_matches)
     @name = name
     @all_matches = all_matches

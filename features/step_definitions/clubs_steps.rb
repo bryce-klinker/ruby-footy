@@ -84,8 +84,31 @@ Then(/^I should get each club's number of draws$/) do
   expect_club_to_have_draws 'Aston Villa', 8
 end
 
+Then(/^I should get each club's number of losses$/) do
+  expect_club_to_have_losses 'Leicester', 3
+  expect_club_to_have_losses 'Arsenal', 7
+  expect_club_to_have_losses 'Tottenham', 6
+  expect_club_to_have_losses 'Man City', 10
+  expect_club_to_have_losses 'Man United', 10
+  expect_club_to_have_losses 'Southampton', 1
+  expect_club_to_have_losses 'West Ham', 8
+  expect_club_to_have_losses 'Liverpool', 10
+  expect_club_to_have_losses 'Stoke', 15
+  expect_club_to_have_losses 'Chelsea', 12
+  expect_club_to_have_losses 'Everton', 13
+  expect_club_to_have_losses 'Swansea', 15
+  expect_club_to_have_losses 'Watford', 17
+  expect_club_to_have_losses 'West Brom', 15
+  expect_club_to_have_losses 'Crystal Palace', 18
+  expect_club_to_have_losses 'Bournemouth', 18
+  expect_club_to_have_losses 'Sunderland', 17
+  expect_club_to_have_losses 'Newcastle', 19
+  expect_club_to_have_losses 'Norwich', 22
+  expect_club_to_have_losses 'Aston Villa', 27
+end
+
 def get_club_by_name(club_name)
-  club = @clubs.select { |c| c.name == club_name }.first
+  @clubs.select { |c| c.name == club_name }.first
 end
 
 def expect_club_to_have_wins(club_name, wins)
@@ -96,4 +119,9 @@ end
 def expect_club_to_have_draws(club_name, draws)
   club = get_club_by_name club_name
   expect(club.draws).to eql draws
+end
+
+def expect_club_to_have_losses(club_name, losses)
+  club = get_club_by_name club_name
+  expect(club.losses).to eql losses
 end

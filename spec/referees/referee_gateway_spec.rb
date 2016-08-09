@@ -7,12 +7,12 @@ describe 'RefereeGateway' do
   end
 
   it 'should get all referees' do
-    referees = @referee_gateway.getAll
+    referees = @referee_gateway.get_all
     expect(referees.length).to eql 19
   end
 
   it 'should get referee name' do
-    referees = @referee_gateway.getAll
+    referees = @referee_gateway.get_all
     expect(referees[0].name).to eql 'A Marriner'
   end
 end

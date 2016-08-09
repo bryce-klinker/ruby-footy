@@ -2,7 +2,7 @@ require './src/clubs/club_gateway'
 
 When(/^I get all clubs$/) do
   club_gateway = ClubGateway.new $csv_path
-  @clubs = club_gateway.getAll
+  @clubs = club_gateway.get_all
 end
 
 Then(/^I should get Premier League clubs for the 2015\/2016 season$/) do

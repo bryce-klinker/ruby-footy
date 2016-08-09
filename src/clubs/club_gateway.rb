@@ -1,18 +1,16 @@
 require_relative 'club.rb'
-require_relative 'match.rb'
+require_relative '../matches/match_gateway.rb'
 
 class ClubGateway
-  def initialize(csvPath)
-    @csvPath = csvPath
+  def initialize(csv_path)
+    @match_gateway = MatchGateway.new csv_path
   end
 
-  def getAll
-    matches = File.readlines(@csvPath)
-                  .drop(1)
-                  .map{ |line| Match.new(line) }
+  def get_all
+    matches = @match_gateway.get_all
 
     matches.group_by{ |match| match.host }
-                  .map{ |g| Club.new(g[0], matches) }
-                  .sort_by{ |c| c.name }
+        .map{ |g| Club.new(g[0], matches) }
+        .sort_by{ |c| c.name }
   end
 end

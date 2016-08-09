@@ -2,7 +2,7 @@ require './src/referees/referee_gateway'
 
 When(/^I get all referees$/) do
   @refereee_gateway = RefereeGateway.new $csv_path
-  @referees = @refereee_gateway.getAll
+  @referees = @refereee_gateway.get_all
 end
 
 Then(/^I should get Premier League referees for the 2015\/2016 season$/) do

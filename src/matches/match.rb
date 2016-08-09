@@ -7,6 +7,10 @@ class Match
     @match_values[3]
   end
 
+  def referee_name
+    @match_values[10]
+  end
+
   def host_score
     @match_values[4].to_i
   end

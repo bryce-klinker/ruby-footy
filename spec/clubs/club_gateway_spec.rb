@@ -9,12 +9,12 @@ describe 'ClubGateway' do
   describe 'getAll' do
     it 'should get all clubs' do
       clubs = @club_gateway.getAll
-      expect(clubs.size).to equal(20)
+      expect(clubs.length).to eq(20)
     end
 
     it 'should get club name' do
       clubs = @club_gateway.getAll
-      expect(clubs[0].name).to equal('Arsenal')
+      expect(clubs[0][:name]).to eq('Arsenal')
     end
   end
 end

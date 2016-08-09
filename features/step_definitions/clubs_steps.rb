@@ -10,7 +10,7 @@ When(/^I get all clubs$/) do
 end
 
 Then(/^I should get Premier League clubs for the 2015\/2016 season$/) do
-  expect(@clubs.size).to equal 20
+  expect(@clubs.size).to eq 20
 end
 
 Then(/^I should get each club's name$/) do

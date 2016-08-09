@@ -4,6 +4,9 @@ class ClubGateway
   end
 
   def getAll
-    return Array.new(20)
+    arsenal = {:name => 'Arsenal' }
+    clubs = []
+    clubs.push(arsenal)
+    return clubs
   end
 end

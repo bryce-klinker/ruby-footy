@@ -1,12 +1,8 @@
 require './src/clubs/club_gateway'
 
-Given(/^2015\/2016 Premier League data$/) do
-  @csvPath = File.expand_path '../../../data/csv/2015_2016_Premier_League_Results.csv', __FILE__
-end
-
 When(/^I get all clubs$/) do
-  clubGateway = ClubGateway.new @csvPath
-  @clubs = clubGateway.getAll
+  club_gateway = ClubGateway.new $csv_path
+  @clubs = club_gateway.getAll
 end
 
 Then(/^I should get Premier League clubs for the 2015\/2016 season$/) do
@@ -14,28 +10,28 @@ Then(/^I should get Premier League clubs for the 2015\/2016 season$/) do
 end
 
 Then(/^I should get each club's name$/) do
-  clubNames = @clubs.map { |c| c.name }
+  club_names = @clubs.map { |c| c.name }
 
-  expect(clubNames).to include 'Arsenal'
-  expect(clubNames).to include 'Aston Villa'
-  expect(clubNames).to include 'Bournemouth'
-  expect(clubNames).to include 'Chelsea'
-  expect(clubNames).to include 'Everton'
-  expect(clubNames).to include 'Crystal Palace'
-  expect(clubNames).to include 'Man United'
-  expect(clubNames).to include 'Swansea'
-  expect(clubNames).to include 'Watford'
-  expect(clubNames).to include 'Leicester'
-  expect(clubNames).to include 'Sunderland'
-  expect(clubNames).to include 'Tottenham'
-  expect(clubNames).to include 'West Ham'
-  expect(clubNames).to include 'Newcastle'
-  expect(clubNames).to include 'West Brom'
-  expect(clubNames).to include 'Man City'
-  expect(clubNames).to include 'Southampton'
-  expect(clubNames).to include 'Liverpool'
-  expect(clubNames).to include 'Norwich'
-  expect(clubNames).to include 'Stoke'
+  expect(club_names).to include 'Arsenal'
+  expect(club_names).to include 'Aston Villa'
+  expect(club_names).to include 'Bournemouth'
+  expect(club_names).to include 'Chelsea'
+  expect(club_names).to include 'Everton'
+  expect(club_names).to include 'Crystal Palace'
+  expect(club_names).to include 'Man United'
+  expect(club_names).to include 'Swansea'
+  expect(club_names).to include 'Watford'
+  expect(club_names).to include 'Leicester'
+  expect(club_names).to include 'Sunderland'
+  expect(club_names).to include 'Tottenham'
+  expect(club_names).to include 'West Ham'
+  expect(club_names).to include 'Newcastle'
+  expect(club_names).to include 'West Brom'
+  expect(club_names).to include 'Man City'
+  expect(club_names).to include 'Southampton'
+  expect(club_names).to include 'Liverpool'
+  expect(club_names).to include 'Norwich'
+  expect(club_names).to include 'Stoke'
 end
 
 Then(/^I should get each club's number of wins$/) do

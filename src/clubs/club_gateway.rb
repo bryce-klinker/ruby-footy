@@ -4,9 +4,20 @@ class ClubGateway
   end
 
   def getAll
-    arsenal = {:name => 'Arsenal' }
-    clubs = []
-    clubs.push(arsenal)
-    return clubs
+    return getClubNames()
+      .map{ |n| { name: n }}
   end
+
+  private
+    def getClubNames
+      lines = File.readlines(@csvPath)
+      return lines.drop(1)
+        .collect{ |l| getClubName(l)}
+        .uniq { |l| l }
+        .sort_by{|l| l }
+    end
+
+    def getClubName(line)
+      return line.split(',')[2]
+    end
 end

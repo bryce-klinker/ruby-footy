@@ -39,29 +39,61 @@ Then(/^I should get each club's name$/) do
 end
 
 Then(/^I should get each club's number of wins$/) do
-  expectClubToHaveWins 'Leicester', 23
-  expectClubToHaveWins 'Arsenal', 20
-  expectClubToHaveWins 'Tottenham', 19
-  expectClubToHaveWins 'Man City', 19
-  expectClubToHaveWins 'Man United', 19
-  expectClubToHaveWins 'Southampton', 18
-  expectClubToHaveWins 'West Ham', 16
-  expectClubToHaveWins 'Liverpool', 16
-  expectClubToHaveWins 'Stoke', 14
-  expectClubToHaveWins 'Chelsea', 12
-  expectClubToHaveWins 'Everton', 11
-  expectClubToHaveWins 'Swansea', 12
-  expectClubToHaveWins 'Watford', 12
-  expectClubToHaveWins 'West Brom', 10
-  expectClubToHaveWins 'Crystal Palace', 11
-  expectClubToHaveWins 'Bournemouth', 11
-  expectClubToHaveWins 'Sunderland', 9
-  expectClubToHaveWins 'Newcastle', 9
-  expectClubToHaveWins 'Norwich', 9
-  expectClubToHaveWins 'Aston Villa', 3
+  expect_club_to_have_wins 'Leicester', 23
+  expect_club_to_have_wins 'Arsenal', 20
+  expect_club_to_have_wins 'Tottenham', 19
+  expect_club_to_have_wins 'Man City', 19
+  expect_club_to_have_wins 'Man United', 19
+  expect_club_to_have_wins 'Southampton', 18
+  expect_club_to_have_wins 'West Ham', 16
+  expect_club_to_have_wins 'Liverpool', 16
+  expect_club_to_have_wins 'Stoke', 14
+  expect_club_to_have_wins 'Chelsea', 12
+  expect_club_to_have_wins 'Everton', 11
+  expect_club_to_have_wins 'Swansea', 12
+  expect_club_to_have_wins 'Watford', 12
+  expect_club_to_have_wins 'West Brom', 10
+  expect_club_to_have_wins 'Crystal Palace', 11
+  expect_club_to_have_wins 'Bournemouth', 11
+  expect_club_to_have_wins 'Sunderland', 9
+  expect_club_to_have_wins 'Newcastle', 9
+  expect_club_to_have_wins 'Norwich', 9
+  expect_club_to_have_wins 'Aston Villa', 3
 end
 
-def expectClubToHaveWins(clubName, wins)
-  club = @clubs.select{|c| c.name == clubName }.first
-  expect(club.wins).to eql(wins)
+Then(/^I should get each club's number of draws$/) do
+  expect_club_to_have_draws 'Leicester', 12
+  expect_club_to_have_draws 'Arsenal', 11
+  expect_club_to_have_draws 'Tottenham', 13
+  expect_club_to_have_draws 'Man City', 9
+  expect_club_to_have_draws 'Man United', 9
+  expect_club_to_have_draws 'Southampton', 9
+  expect_club_to_have_draws 'West Ham', 14
+  expect_club_to_have_draws 'Liverpool', 12
+  expect_club_to_have_draws 'Stoke', 9
+  expect_club_to_have_draws 'Chelsea', 14
+  expect_club_to_have_draws 'Everton', 14
+  expect_club_to_have_draws 'Swansea', 11
+  expect_club_to_have_draws 'Watford', 9
+  expect_club_to_have_draws 'West Brom', 13
+  expect_club_to_have_draws 'Crystal Palace', 9
+  expect_club_to_have_draws 'Bournemouth', 9
+  expect_club_to_have_draws 'Sunderland', 12
+  expect_club_to_have_draws 'Newcastle', 10
+  expect_club_to_have_draws 'Norwich', 7
+  expect_club_to_have_draws 'Aston Villa', 8
+end
+
+def get_club_by_name(club_name)
+  club = @clubs.select { |c| c.name == club_name }.first
+end
+
+def expect_club_to_have_wins(club_name, wins)
+  club = get_club_by_name club_name
+  expect(club.wins).to eql wins
+end
+
+def expect_club_to_have_draws(club_name, draws)
+  club = get_club_by_name club_name
+  expect(club.draws).to eql draws
 end

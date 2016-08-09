@@ -14,7 +14,7 @@ Then(/^I should get Premier League clubs for the 2015\/2016 season$/) do
 end
 
 Then(/^I should get each club's name$/) do
-  clubNames = @clubs.map { |c| c[:name] }
+  clubNames = @clubs.map { |c| c.name }
 
   expect(clubNames).to include 'Arsenal'
   expect(clubNames).to include 'Aston Villa'
@@ -62,6 +62,6 @@ Then(/^I should get each club's number of wins$/) do
 end
 
 def expectClubToHaveWins(clubName, wins)
-  club = @clubs.select{|c| c[:name] == clubName }
-  expect(club[:wins]).to eql(wins)
+  club = @clubs.select{|c| c.name == clubName }.first
+  expect(club.wins).to eql(wins)
 end

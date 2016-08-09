@@ -27,21 +27,29 @@ class Match
     @match_values = match_line.split(',')
   end
 
-  def is_host(clubName)
-    return host_name == clubName
+  def is_host(club_name)
+    return host_name == club_name
   end
 
-  def is_visitor(clubName)
-    return visitor_name == clubName
+  def is_visitor(club_name)
+    return visitor_name == club_name
   end
 
-  def is_winner(clubName)
-    if is_host clubName
+  def is_winner(club_name)
+    if is_host club_name
       return is_host_winner
     end
 
-    if is_visitor clubName
+    if is_visitor club_name
       return is_visitor_winner
+    end
+
+    return false
+  end
+
+  def is_draw(club_name)
+    if is_host club_name or is_visitor club_name
+      return host_score == visitor_score
     end
 
     return false

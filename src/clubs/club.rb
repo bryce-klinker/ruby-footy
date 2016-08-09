@@ -8,6 +8,11 @@ class Club
       .length
   end
 
+  def draws
+    return @all_matches.select{ |m| m.is_draw name }
+      .length
+  end
+
   def initialize(name, all_matches)
     @name = name
     @all_matches = all_matches

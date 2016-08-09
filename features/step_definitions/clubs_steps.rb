@@ -130,6 +130,29 @@ Then(/^I should get each club's point total$/) do
   expect_club_to_have_points 'Aston Villa', 17
 end
 
+Then(/^I should get each club's goals against count$/) do
+  expect_club_to_have_goals_against 'Leicester', 36
+  expect_club_to_have_goals_against 'Arsenal', 36
+  expect_club_to_have_goals_against 'Tottenham', 35
+  expect_club_to_have_goals_against 'Man City', 41
+  expect_club_to_have_goals_against 'Man United', 35
+  expect_club_to_have_goals_against 'Southampton', 41
+  expect_club_to_have_goals_against 'West Ham', 51
+  expect_club_to_have_goals_against 'Liverpool', 50
+  expect_club_to_have_goals_against 'Stoke', 55
+  expect_club_to_have_goals_against 'Chelsea', 53
+  expect_club_to_have_goals_against 'Everton', 55
+  expect_club_to_have_goals_against 'Swansea', 52
+  expect_club_to_have_goals_against 'Watford', 50
+  expect_club_to_have_goals_against 'West Brom', 48
+  expect_club_to_have_goals_against 'Crystal Palace', 51
+  expect_club_to_have_goals_against 'Bournemouth', 67
+  expect_club_to_have_goals_against 'Sunderland', 62
+  expect_club_to_have_goals_against 'Newcastle', 65
+  expect_club_to_have_goals_against 'Norwich', 67
+  expect_club_to_have_goals_against 'Aston Villa', 76
+end
+
 def get_club_by_name(club_name)
   @clubs.select { |c| c.name == club_name }.first
 end
@@ -152,4 +175,9 @@ end
 def expect_club_to_have_points(club_name, points)
   club = get_club_by_name club_name
   expect(club.points).to eql points
+end
+
+def expect_club_to_have_goals_against(club_name, goals_against)
+  club = get_club_by_name club_name
+  expect(club.goals_against).to eql goals_against
 end

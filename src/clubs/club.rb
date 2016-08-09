@@ -19,7 +19,14 @@ class Club
   end
 
   def points
-    return wins * 3 + draws
+    wins * 3 + draws
+  end
+
+  def goals_against
+    allowed = 0
+    @all_matches.map{ |m| m.allowed name }
+      .each{ |a| allowed += a }
+    allowed
   end
 
   def initialize(name, all_matches)

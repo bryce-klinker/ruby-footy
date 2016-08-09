@@ -3,7 +3,6 @@ Feature: Get clubs in the Premier League
   I want to know which teams are in the Premier League
   So that I can track my club
 
-
   Scenario: Get clubs in Premier League
     Given 2015/2016 Premier League data
     When I get all clubs
@@ -13,3 +12,4 @@ Feature: Get clubs in the Premier League
     Then I should get each club's number of draws
     Then I should get each club's number of losses
     Then I should get each club's point total
+    Then I should get each club's goals against count

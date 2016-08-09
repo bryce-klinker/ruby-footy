@@ -11,7 +11,7 @@ class ClubGateway
                   .drop(1)
                   .map{ |line| Match.new(line) }
 
-    return matches.group_by{ |match| match.host }
+    matches.group_by{ |match| match.host }
                   .map{ |g| Club.new(g[0], matches) }
                   .sort_by{ |c| c.name }
   end

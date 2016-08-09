@@ -1,4 +1,4 @@
-class TeamGateway
+class ClubGateway
   def initialize(csvPath)
     @csvPath = csvPath
   end

@@ -6,5 +6,6 @@ Feature: Get clubs in the Premier League
 
   Scenario: Get clubs in Premier League
     Given 2015/2016 Premier League data
-    When I get all teams
-    Then I should get Premier League teams for the 2015/2016 season
+    When I get all clubs
+    Then I should get Premier League clubs for the 2015/2016 season
+    Then I should get each club's name

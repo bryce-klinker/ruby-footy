@@ -10,4 +10,9 @@ describe 'LeagueGateway' do
     leagues = @league_gateway.get_all
     expect(leagues.length).to eql 1
   end
+
+  it 'should get all league names' do
+    leagues = @league_gateway.get_all
+    expect(leagues[0].name).to eql 'Premier League'
+  end
 end

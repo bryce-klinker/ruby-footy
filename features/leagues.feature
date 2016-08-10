@@ -5,4 +5,4 @@ Feature: Leagues
 
   Scenario: Get Leagues
     When I get leagues
-    Then I should get Premier League
+    Then I should get league Premier League

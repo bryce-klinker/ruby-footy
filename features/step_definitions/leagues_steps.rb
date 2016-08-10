@@ -7,7 +7,7 @@ When(/^I get leagues$/) do
 end
 
 
-Then(/^I should get (.*)$/) do |league_name|
+Then(/^I should get league (.*)$/) do |league_name|
   league_names = @leagues.map{ |l| l.name }
   expect(league_names).to include league_name
 end

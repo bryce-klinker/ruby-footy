@@ -35,4 +35,13 @@ describe 'Season' do
     expect(@season.leader_board[1].points).to be > @season.leader_board[2].points
     expect(@season.leader_board[2].points).to be > @season.leader_board[3].points
   end
+
+  it 'should get referees for season' do
+    expect(@season.referees.length).to eql 19
+  end
+
+  it 'should get referee names for season' do
+    expect(@season.referees[0].name).to eql 'A Marriner'
+    expect(@season.referees[1].name).to eql 'A Taylor'
+  end
 end

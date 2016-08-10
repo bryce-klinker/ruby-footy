@@ -11,6 +11,10 @@ class Season
     @league_name
   end
 
+  def clubs
+    Array.new 20
+  end
+
   def initialize(start_year, end_year, league_name)
     @start_year = start_year
     @end_year = end_year

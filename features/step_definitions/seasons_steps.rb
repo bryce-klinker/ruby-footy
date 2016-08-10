@@ -8,5 +8,5 @@ Then(/^I should get all (\d+) clubs in (\d+)_(\d+) (.*) season$/) do |number_of_
   expect(@season.start_year).to eql start_year
   expect(@season.end_year).to eql end_year
   expect(@season.league_name).to eql league_name
-  expect(@season.clubs.length).to eql number_of_clubs
+  expect(@season.clubs.length).to eql number_of_clubs.to_i
 end

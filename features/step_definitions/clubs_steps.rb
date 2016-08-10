@@ -1,8 +1,8 @@
-require './src/clubs/club_gateway'
+require './src/seasons/season'
 
 When(/^I get all clubs$/) do
-  club_gateway = ClubGateway.new $csv_path
-  @clubs = club_gateway.get_all
+  season = Season.new 2015, 2016, 'Premier League'
+  @clubs = season.clubs
 end
 
 Then(/^I should get Premier League clubs for the 2015\/2016 season$/) do

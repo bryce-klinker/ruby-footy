@@ -7,3 +7,4 @@ Feature: Seasons
     Given 2015_2016 Premier League data
     When I get season 2015_2016 Premier League season
     Then I should get all 20 clubs in 2015_2016 Premier League season
+    Then I should have leader board for 2015_2016 Premier League season

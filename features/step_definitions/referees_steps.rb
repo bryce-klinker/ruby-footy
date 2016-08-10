@@ -1,8 +1,8 @@
-require './src/referees/referee_gateway'
+require './src/seasons/season'
 
-When(/^I get all referees$/) do
-  @referee_gateway = RefereeGateway.new $csv_path
-  @referees = @referee_gateway.get_all
+When(/^I get all referees for (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_name|
+  season = Season.new start_year, end_year, league_name
+  @referees = season.referees
 end
 
 Then(/^I should get Premier League referees for the 2015\/2016 season$/) do

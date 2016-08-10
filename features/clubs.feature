@@ -5,8 +5,8 @@ Feature: Clubs
 
   Scenario: Get clubs in Premier League
     Given 2015_2016 Premier League data
-    When I get all clubs
-    Then I should get Premier League clubs for the 2015/2016 season
+    When I get all clubs for 2015_2016 Premier League season
+    Then I should get Premier League clubs for the 2015_2016 season
     Then I should get each club's name
     Then I should get each club's number of wins
     Then I should get each club's number of draws

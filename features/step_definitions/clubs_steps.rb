@@ -1,11 +1,11 @@
 require './src/seasons/season'
 
-When(/^I get all clubs$/) do
-  season = Season.new 2015, 2016, 'Premier League'
+When(/^I get all clubs for (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_name|
+  season = Season.new start_year, end_year, league_name
   @clubs = season.clubs
 end
 
-Then(/^I should get Premier League clubs for the 2015\/2016 season$/) do
+Then(/^I should get Premier League clubs for the 2015_2016 season$/) do
   expect(@clubs.size).to eq 20
 end
 

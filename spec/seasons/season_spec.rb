@@ -12,4 +12,6 @@ describe 'Season' do
   it 'should have end year' do
     expect(@season.end_year).to eql 2016
   end
+
+  it 'should have league name'
 end

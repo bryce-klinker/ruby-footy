@@ -31,6 +31,18 @@ class Match
     host_red_cards_given + visitor_red_cards_given
   end
 
+  def host_yellow_cards_given
+    @match_values[19].to_i
+  end
+
+  def visitor_yellow_cards_given
+    @match_values[20].to_i
+  end
+
+  def yellow_cards_given
+    host_yellow_cards_given + visitor_yellow_cards_given
+  end
+
   def initialize(match_line)
     @match_values = match_line.split(',')
   end

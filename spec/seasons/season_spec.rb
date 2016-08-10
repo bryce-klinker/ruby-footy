@@ -16,4 +16,8 @@ describe 'Season' do
   it 'should have league name' do
     expect(@season.league_name).to eql 'Premier League'
   end
+
+  it 'should get clubs for season' do
+    expect(@season.clubs.length).to eql 20
+  end
 end

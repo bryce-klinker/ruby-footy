@@ -37,3 +37,7 @@ end
 Then(/^I should get all referees in 2015_2016 Premier League season$/) do
   expect(@season.referees.length).to eql 19
 end
+
+Then(/^I should get all (\d+) matches in 2015_2016 Premier League season$/) do |match_count|
+  expect(@season.matches.length).to eql match_count
+end

@@ -13,7 +13,5 @@ class MatchGateway
     @matches = File.readlines(@csv_path)
         .drop(1)
         .map{ |line| Match.new(line) }
-
-    @matches
   end
 end

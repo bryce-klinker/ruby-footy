@@ -21,11 +21,18 @@ describe 'Season' do
     expect(@season.clubs.length).to eql 20
   end
 
+  it 'should get club names for season' do
+    expect(@season.clubs[0].name).to eql 'Arsenal'
+    expect(@season.clubs[1].name).to eql 'Aston Villa'
+  end
+
   it 'should have leader board for season' do
     expect(@season.leader_board.length).to eql 20
   end
 
   it 'should have point leader at top of leader board' do
     expect(@season.leader_board[0].points).to be > @season.leader_board[1].points
+    expect(@season.leader_board[1].points).to be > @season.leader_board[2].points
+    expect(@season.leader_board[2].points).to be > @season.leader_board[3].points
   end
 end

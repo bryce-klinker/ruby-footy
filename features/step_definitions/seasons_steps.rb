@@ -12,7 +12,7 @@ Then(/^I should get all 20 clubs in 2015_2016 Premier League season$/) do
 end
 
 Then(/^I should have leader board for 2015_2016 Premier League season$/) do
-  expect(@season.leader_board[0].name).to eql 'Leicester City'
+  expect(@season.leader_board[0].name).to eql 'Leicester'
   expect(@season.leader_board[1].name).to eql 'Arsenal'
   expect(@season.leader_board[2].name).to eql 'Tottenham'
   expect(@season.leader_board[3].name).to eql 'Man City'

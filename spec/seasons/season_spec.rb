@@ -20,4 +20,12 @@ describe 'Season' do
   it 'should get clubs for season' do
     expect(@season.clubs.length).to eql 20
   end
+
+  it 'should have leader board for season' do
+    expect(@season.leader_board.length).to eql 20
+  end
+
+  it 'should have point leader at top of leader board' do
+    expect(@season.leader_board[0].points).to be > @season.leader_board[1].points
+  end
 end

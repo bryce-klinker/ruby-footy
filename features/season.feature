@@ -11,7 +11,6 @@ Feature: Seasons
     Then I should get all referees in 2015_2016 Premier League season
     Then I should get all 380 matches in 2015_2016 Premier League season
 
-
   Scenario: Get Premier League Seasons
     When I get Premier League seasons
     Then I should get 2015_2016 Premier League season

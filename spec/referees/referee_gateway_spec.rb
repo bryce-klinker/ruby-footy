@@ -15,4 +15,10 @@ describe 'RefereeGateway' do
     referees = @referee_gateway.get_all
     expect(referees[0].name).to eql 'A Marriner'
   end
+
+  it 'should get red cards given' do
+    referees = @referee_gateway.get_all
+    expect(referees[2].red_cards_given).to eql 2
+    expect(referees[3].red_cards_given).to eql 1
+  end
 end

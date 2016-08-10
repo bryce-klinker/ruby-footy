@@ -19,6 +19,18 @@ class Match
     @match_values[5].to_i
   end
 
+  def host_red_cards_given
+    @match_values[21].to_i
+  end
+
+  def visitor_red_cards_given
+    @match_values[22].to_i
+  end
+
+  def red_cards_given
+    host_red_cards_given + visitor_red_cards_given
+  end
+
   def initialize(match_line)
     @match_values = match_line.split(',')
   end
@@ -61,6 +73,10 @@ class Match
     end
 
     false
+  end
+
+  def is_referee(referee_name)
+    self.referee_name == referee_name
   end
 
   def allowed(club_name)

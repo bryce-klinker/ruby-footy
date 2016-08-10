@@ -7,9 +7,9 @@ class RefereeGateway
   end
 
   def get_all
-    @match_gateway.get_all
-        .group_by{ |m| m.referee_name }
-        .map{ |g| Referee.new(g[0]) }
+    matches = @match_gateway.get_all
+    matches.group_by{ |m| m.referee_name }
+        .map{ |g| Referee.new(g[0], matches) }
         .sort_by{ |r| r.name }
   end
 end

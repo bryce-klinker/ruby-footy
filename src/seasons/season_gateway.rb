@@ -1,8 +1,8 @@
 require_relative 'season'
 
 class SeasonGateway
-  def initialize
-    @seasons_directory = File.expand_path './data/seasons'
+  def initialize(seasons_directory)
+    @seasons_directory = seasons_directory
   end
 
   def get_by_league_name(league_name)

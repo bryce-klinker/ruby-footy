@@ -6,7 +6,7 @@ When(/^I get season (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_
 end
 
 When(/^I get (.*) seasons$/) do |league_name|
-  season_gateway = SeasonGateway.new
+  season_gateway = SeasonGateway.new File.expand_path './data/seasons'
   @league_seasons = season_gateway.get_by_league_name league_name
 end
 

@@ -2,7 +2,8 @@ require './src/seasons/season_gateway'
 
 describe 'SeasonGateway' do
   before do
-    @season_gateway = SeasonGateway.new
+    seasons_directory = File.expand_path './data/seasons'
+    @season_gateway = SeasonGateway.new seasons_directory
   end
 
   it 'should get seasons with league name' do

@@ -1,5 +1,6 @@
 require_relative '../clubs/club_gateway'
 require_relative '../referees/referee_gateway'
+require_relative '../matches/match_gateway'
 
 class Season
   def start_year
@@ -26,6 +27,10 @@ class Season
     @referee_gateway.get_all
   end
 
+  def matches
+    @match_gateway.get_all
+  end
+
   def csv_path
     File.expand_path "../../../data/seasons/#{start_year}_#{end_year}_#{league_name.gsub ' ', '_'}.csv", __FILE__
   end
@@ -36,5 +41,6 @@ class Season
     @league_name = league_name
     @club_gateway = ClubGateway.new csv_path
     @referee_gateway = RefereeGateway.new csv_path
+    @match_gateway = MatchGateway.new csv_path
   end
 end

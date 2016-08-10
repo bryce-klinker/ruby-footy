@@ -48,4 +48,9 @@ describe 'Season' do
   it 'should get all matches for season' do
     expect(@season.matches.length).to eql 380
   end
+
+  it 'should get match host' do
+    expect(@season.matches[0].host).to eql 'Bournemouth'
+    expect(@season.matches[1].host).to eql 'Chelsea'
+  end
 end

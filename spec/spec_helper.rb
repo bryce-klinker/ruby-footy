@@ -4,5 +4,6 @@ test_config_path = File.expand_path './config.test.yml'
 FootyConfig.load(test_config_path)
 
 def get_season_csv_path(start_year, end_year, league_name)
-
+  file_name = "#{start_year}_#{end_year}_#{league_name.gsub(' ', '_')}.csv"
+  File.expand_path "#{FootyConfig.seasons_directory}/#{file_name}", __FILE__
 end

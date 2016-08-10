@@ -3,7 +3,7 @@ require './src/shared/footy_config'
 
 describe 'MatchGateway' do
   before do
-    csv_path = File.expand_path "#{FootyConfig.seasons_directory}/2015_2016_Premier_League.csv", __FILE__
+    csv_path = get_season_csv_path 2015, 2016, 'Premier League'
     @match_gateway = MatchGateway.new csv_path
   end
 

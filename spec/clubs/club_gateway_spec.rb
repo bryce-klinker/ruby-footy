@@ -3,8 +3,8 @@ require './src/shared/footy_config'
 
 describe 'ClubGateway' do
   before do
-    filePath = File.expand_path "#{FootyConfig.seasons_directory}/2015_2016_Premier_League.csv", __FILE__
-    @club_gateway = ClubGateway.new filePath
+    csv_path = get_season_csv_path 2015, 2016, 'Premier League'
+    @club_gateway = ClubGateway.new csv_path
   end
 
   describe 'getAll' do

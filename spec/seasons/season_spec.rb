@@ -44,4 +44,8 @@ describe 'Season' do
     expect(@season.referees[0].name).to eql 'A Marriner'
     expect(@season.referees[1].name).to eql 'A Taylor'
   end
+
+  it 'should get all matches for season' do
+    expect(@season.matches.length).to eql 380
+  end
 end

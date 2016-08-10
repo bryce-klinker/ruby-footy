@@ -52,7 +52,34 @@ Then(/^I should get red cards given per referee$/) do
   expect_referee_red_cards_given 'P Tierney', 0
 end
 
+Then(/^I should get yellow cards given per referee$/) do
+  expect_referee_yellow_cards_given 'M Oliver', 89
+  expect_referee_yellow_cards_given 'M Jones', 82
+  expect_referee_yellow_cards_given 'A Taylor', 107
+  expect_referee_yellow_cards_given 'J Moss', 71
+  expect_referee_yellow_cards_given 'M Clattenburg', 95
+  expect_referee_yellow_cards_given 'K Friend', 59
+  expect_referee_yellow_cards_given 'A Marriner', 84
+  expect_referee_yellow_cards_given 'R Madley', 70
+  expect_referee_yellow_cards_given 'M Dean', 106
+  expect_referee_yellow_cards_given 'S Attwell', 12
+  expect_referee_yellow_cards_given 'N Swarbrick', 54
+  expect_referee_yellow_cards_given 'L Mason', 55
+  expect_referee_yellow_cards_given 'K Stroud', 9
+  expect_referee_yellow_cards_given 'C Pawson', 87
+  expect_referee_yellow_cards_given 'G Scott', 16
+  expect_referee_yellow_cards_given 'M Atkinson', 99
+  expect_referee_yellow_cards_given 'R East', 71
+  expect_referee_yellow_cards_given 'S Hooper', 1
+  expect_referee_yellow_cards_given 'P Tierney', 12
+end
+
 def expect_referee_red_cards_given(referee_name, red_cards_given)
   referee = @referees.select{ |r| r.name == referee_name }.first
   expect(referee.red_cards_given).to eql red_cards_given
+end
+
+def expect_referee_yellow_cards_given(referee_name, yellow_cards_given)
+  referee = @referees.select{ |r| r.name == referee_name }.first
+  expect(referee.yellow_cards_given).to eql yellow_cards_given
 end

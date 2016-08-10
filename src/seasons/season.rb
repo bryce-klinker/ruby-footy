@@ -23,7 +23,7 @@ class Season
   end
 
   def csv_path
-    File.expand_path "../../../data/csv/#{start_year}_#{end_year}_#{league_name.gsub ' ', '_'}.csv", __FILE__
+    File.expand_path "../../../data/seasons/#{start_year}_#{end_year}_#{league_name.gsub ' ', '_'}.csv", __FILE__
   end
 
   def initialize(start_year, end_year, league_name)

@@ -2,7 +2,7 @@ require './src/referees/referee_gateway'
 
 describe 'RefereeGateway' do
   before do
-    filePath = File.expand_path '../../../data/csv/2015_2016_Premier_League_Results.csv', __FILE__
+    filePath = File.expand_path '../../../data/csv/2015_2016_Premier_League.csv', __FILE__
     @referee_gateway = RefereeGateway.new filePath
   end
 

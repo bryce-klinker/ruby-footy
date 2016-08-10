@@ -2,7 +2,7 @@ require './src/clubs/club_gateway'
 
 describe 'ClubGateway' do
   before do
-    filePath = File.expand_path '../../../data/csv/2015_2016_Premier_League_Results.csv', __FILE__
+    filePath = File.expand_path '../../../data/csv/2015_2016_Premier_League.csv', __FILE__
     @club_gateway = ClubGateway.new filePath
   end
 

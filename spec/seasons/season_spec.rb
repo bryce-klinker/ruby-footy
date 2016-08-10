@@ -13,5 +13,7 @@ describe 'Season' do
     expect(@season.end_year).to eql 2016
   end
 
-  it 'should have league name'
+  it 'should have league name' do
+    expect(@season.league_name).to eql 'Premier League'
+  end
 end

@@ -2,7 +2,8 @@ require './src/seasons/season'
 require './src/seasons/season_gateway'
 
 When(/^I get season (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_name|
-  @season = Season.new(start_year, end_year, league_name)
+  season_path = File.expand_path '../../../data/seasons/2015_2016_Premier_League.csv', __FILE__
+  @season = Season.new season_path
 end
 
 When(/^I get (.*) seasons$/) do |league_name|

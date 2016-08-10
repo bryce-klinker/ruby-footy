@@ -32,15 +32,21 @@ class Season
   end
 
   def csv_path
-    File.expand_path "../../../data/seasons/#{start_year}_#{end_year}_#{league_name.gsub ' ', '_'}.csv", __FILE__
+    @csv_path
   end
 
-  def initialize(start_year, end_year, league_name)
-    @start_year = start_year.to_i
-    @end_year = end_year.to_i
-    @league_name = league_name
-    @club_gateway = ClubGateway.new csv_path
-    @referee_gateway = RefereeGateway.new csv_path
-    @match_gateway = MatchGateway.new csv_path
+  def initialize(csv_path)
+    @csv_path = csv_path
+    extension = File.extname @csv_path
+    file_name = File.basename @csv_path, extension
+    parts = file_name.split('_')
+
+    @start_year = parts[0].to_i
+    @end_year = parts[1].to_i
+    @league_name = parts.drop(2).join(' ')
+
+    @club_gateway = ClubGateway.new @csv_path
+    @referee_gateway = RefereeGateway.new @csv_path
+    @match_gateway = MatchGateway.new @csv_path
   end
 end

@@ -1,4 +1,5 @@
 require_relative 'league'
+require_relative '../shared/csv_path_helper'
 
 class LeagueGateway
   def initialize(seasons_directory)
@@ -7,15 +8,8 @@ class LeagueGateway
 
   def get_all
     Dir.glob("#{@seasons_directory}/*.csv")
-      .map{ |f| get_league_name_from_file f }
+      .map{ |f| get_league_name_from_csv_path f }
       .group_by{ |n| n }
       .map{ |g| League.new g[0] }
-  end
-
-  def get_league_name_from_file(filePath)
-    extension = File.extname filePath
-    file_name = File.basename filePath, extension
-    parts = file_name.split('_')
-    parts.drop(2).join(' ')
   end
 end

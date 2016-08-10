@@ -2,7 +2,8 @@ require './src/seasons/season'
 
 describe 'Season' do
   before do
-    @season = Season.new 2015, 2016, 'Premier League'
+    season_csv_path = File.expand_path "../../../data/seasons/#{start_year}_#{end_year}_#{league_name.gsub ' ', '_'}.csv", __FILE__
+    @season = Season.new season_csv_path
   end
 
   it 'should have start year' do

@@ -1,8 +1,8 @@
 require './src/seasons/season'
-require './src/shared/data_path_helper'
+require './src/shared/footy_config'
 
 When(/^I get all clubs for (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_name|
-  season_path = File.expand_path "#{get_seasons_directory_path}/#{start_year}_#{end_year}_#{league_name.gsub(' ', '_')}.csv", __FILE__
+  season_path = File.expand_path "#{FootyConfig.seasons_directory}/#{start_year}_#{end_year}_#{league_name.gsub(' ', '_')}.csv", __FILE__
   season = Season.new season_path
   @clubs = season.clubs
 end

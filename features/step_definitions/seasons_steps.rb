@@ -1,14 +1,14 @@
 require './src/seasons/season'
 require './src/seasons/season_gateway'
-require './src/shared/data_path_helper'
+require './src/shared/footy_config'
 
 When(/^I get season (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_name|
-  season_path = File.expand_path "#{get_seasons_directory_path}/2015_2016_Premier_League.csv", __FILE__
+  season_path = File.expand_path "#{FootyConfig.seasons_directory}/2015_2016_Premier_League.csv", __FILE__
   @season = Season.new season_path
 end
 
 When(/^I get (.*) seasons$/) do |league_name|
-  season_gateway = SeasonGateway.new get_seasons_directory_path
+  season_gateway = SeasonGateway.new FootyConfig.seasons_directory
   @league_seasons = season_gateway.get_by_league_name league_name
 end
 

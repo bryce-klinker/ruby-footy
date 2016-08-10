@@ -1,8 +1,8 @@
 require './src/leagues/league_gateway'
-require './src/shared/data_path_helper'
+require './src/shared/footy_config'
 
 When(/^I get leagues$/) do
-  seasons_path = get_seasons_directory_path
+  seasons_path = FootyConfig.seasons_directory
   league_gateway = LeagueGateway.new seasons_path
   @leagues = league_gateway.get_all
 end

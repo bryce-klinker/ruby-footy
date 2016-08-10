@@ -1,5 +1,5 @@
 task :unit_test do
-  sh 'bundle exec rspec'
+  sh 'bundle exec rspec --require ./spec/spec_helper.rb'
 end
 
 task :cucumber_test do

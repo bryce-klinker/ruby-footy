@@ -1,9 +1,9 @@
 require './src/seasons/season'
-require './src/shared/data_path_helper'
+require './src/shared/footy_config'
 
 describe 'Season' do
   before do
-    season_csv_path = File.expand_path "#{get_seasons_directory_path}/2015_2016_Premier_League.csv", __FILE__
+    season_csv_path = File.expand_path "#{FootyConfig.seasons_directory}/2015_2016_Premier_League.csv", __FILE__
     @season = Season.new season_csv_path
   end
 

@@ -5,4 +5,5 @@ Feature: Leagues
 
   Scenario: Get Leagues
     When I get leagues
-    Then I should get league Premier League
+    Then I should get the league Premier League
+    Then I should get the league Championship

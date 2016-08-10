@@ -1,8 +1,9 @@
 require './src/referees/referee_gateway'
+require './src/shared/data_path_helper'
 
 describe 'RefereeGateway' do
   before do
-    filePath = File.expand_path '../../../data/seasons/2015_2016_Premier_League.csv', __FILE__
+    filePath = File.expand_path "#{get_seasons_directory_path}/2015_2016_Premier_League.csv", __FILE__
     @referee_gateway = RefereeGateway.new filePath
   end
 

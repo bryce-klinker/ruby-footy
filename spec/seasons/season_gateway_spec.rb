@@ -1,8 +1,9 @@
 require './src/seasons/season_gateway'
+require './src/shared/data_path_helper'
 
 describe 'SeasonGateway' do
   before do
-    seasons_directory = File.expand_path './data/seasons'
+    seasons_directory = get_seasons_directory_path
     @season_gateway = SeasonGateway.new seasons_directory
   end
 

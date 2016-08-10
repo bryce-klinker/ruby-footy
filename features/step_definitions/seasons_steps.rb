@@ -1,7 +1,13 @@
 require './src/seasons/season'
+require './src/seasons/season_gateway'
 
 When(/^I get season (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_name|
   @season = Season.new(start_year, end_year, league_name)
+end
+
+When(/^I get (.*) seasons$/) do |league_name|
+  season_gateway = SeasonGateway.new
+  @league_seasons = season_gateway.get_by_league_name league_name
 end
 
 Then(/^I should get all 20 clubs in 2015_2016 Premier League season$/) do
@@ -40,4 +46,12 @@ end
 
 Then(/^I should get all (\d+) matches in 2015_2016 Premier League season$/) do |match_count|
   expect(@season.matches.length).to eql match_count.to_i
+end
+
+Then(/^I should get (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_name|
+  seasons = @league_seasons.select{ |s| s.start_year == start_year }
+    .select{ |s| s.end_year == end_year }
+    .select{ |s| s.league_name == league_name }
+
+  expect(seasons.length).to eql 1
 end

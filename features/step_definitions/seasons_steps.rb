@@ -49,8 +49,8 @@ Then(/^I should get all (\d+) matches in 2015_2016 Premier League season$/) do |
 end
 
 Then(/^I should get (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_name|
-  seasons = @league_seasons.select{ |s| s.start_year == start_year }
-    .select{ |s| s.end_year == end_year }
+  seasons = @league_seasons.select{ |s| s.start_year == start_year.to_i }
+    .select{ |s| s.end_year == end_year.to_i }
     .select{ |s| s.league_name == league_name }
 
   expect(seasons.length).to eql 1

@@ -7,8 +7,13 @@ class Season
     @end_year
   end
 
-  def initialize(start_year, end_year)
+  def league_name
+    @league_name
+  end
+
+  def initialize(start_year, end_year, league_name)
     @start_year = start_year
     @end_year = end_year
+    @league_name = league_name
   end
 end

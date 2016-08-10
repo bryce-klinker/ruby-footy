@@ -2,7 +2,7 @@ require './src/seasons/season'
 
 describe 'Season' do
   before do
-    @season = Season.new 2015, 2016
+    @season = Season.new 2015, 2016, 'Premier League'
   end
 
   it 'should have start year' do

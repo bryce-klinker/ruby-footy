@@ -1,4 +1,8 @@
 class Match
+  def date
+    Date.parse @match_values[1]
+  end
+
   def host
     @match_values[2]
   end

@@ -14,12 +14,11 @@ class Season
   end
 
   def clubs
-    Array.new 20
+    @club_gateway.get_all
   end
 
   def leader_board
-    @club_gateway.get_all
-      .sort_by{ |c| c.points }.reverse
+    clubs.sort_by{ |c| c.points }.reverse
   end
 
   def csv_path

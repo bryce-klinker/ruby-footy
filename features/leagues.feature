@@ -11,3 +11,4 @@ Feature: Leagues
   Scenario: Get league seasons
     When I get league Premier League
     Then I should get 2015_2016 season
+    Then I should get 2014_2015 season

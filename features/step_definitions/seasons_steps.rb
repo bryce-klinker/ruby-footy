@@ -33,3 +33,7 @@ Then(/^I should have leader board for 2015_2016 Premier League season$/) do
   expect(@season.leader_board[18].name).to eql 'Norwich'
   expect(@season.leader_board[19].name).to eql 'Aston Villa'
 end
+
+Then(/^I should get all referees in 2015_2016 Premier League season$/) do
+  expect(@season.referees.length).to eql 19
+end

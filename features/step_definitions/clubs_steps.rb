@@ -2,8 +2,6 @@ require './src/seasons/season'
 require './src/shared/footy_config'
 
 When(/^I get all clubs for (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_name|
-  season_path = File.expand_path "#{FootyConfig.seasons_directory}/#{start_year}_#{end_year}_#{league_name.gsub(' ', '_')}.csv", __FILE__
-  season = Season.new season_path
   get "/seasons/#{start_year}/#{end_year}/#{league_name.gsub(' ', '_')}/clubs"
   @clubs = MultiJson.load last_response.body
 end

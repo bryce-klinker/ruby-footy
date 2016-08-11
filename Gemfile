@@ -2,7 +2,7 @@
 source 'https://rubygems.org'
 
 gem 'multi_json'
-gem 'rack'
+gem 'rack', '~> 1.5'
 gem 'sinatra'
 
 group :test do

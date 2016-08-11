@@ -2,7 +2,7 @@ require 'json'
 
 describe 'FootyApp' do
   it 'should respond successfully to requests for clubs' do
-    get '/seasons/Premier_League/2015/2016/clubs'
+    get '/leagues/Premier_League/seasons/2015/2016/clubs'
     clubs = get_response_as_hash
 
     expect(clubs.length).to be 20
@@ -29,7 +29,7 @@ describe 'FootyApp' do
   end
 
   it 'should respond successfully to requests for referees for a season' do
-    get '/seasons/Premier_League/2015/2016/referees'
+    get '/leagues/Premier_League/seasons/2015/2016/referees'
 
     referees = get_response_as_hash
     expect(referees.length).to eql 19

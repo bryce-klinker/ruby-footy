@@ -18,6 +18,11 @@ get '/leagues/:league_name' do
   league_gateway.get_by_name(params['league_name']).to_json
 end
 
+get '/leagues/:league_name/seasons' do
+  content_type :json
+  league_gateway.get_by_name(params['league_name']).seasons.to_json
+end
+
 get '/leagues/:league_name/seasons/:start_year/:end_year' do
   content_type :json
   season = season_gateway.get_season params['start_year'], params['end_year'], params['league_name']

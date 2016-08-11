@@ -62,14 +62,20 @@ describe 'Season' do
     expect_season_as_json json, @season
   end
 
+  it 'should include match data in json' do
+    json @season.to_json('matches')
+    hash = JSON.parse json
+    expect(hash['matches'].length).to eql 380
+  end
+
   def expect_season_as_json(json, season)
     hash = JSON.parse json
     expect(hash['league_name']).to eql season.league_name
     expect(hash['start_year']).to eql season.start_year
     expect(hash['end_year']).to eql season.end_year
-    expect(hash['clubs'].length).to eql season.clubs.length
-    expect(hash['leader_board'].length).to eql season.leader_board.length
-    expect(hash['referees'].length).to eql season.referees.length
-    expect(hash['matches'].length).to eql season.matches.length
+    expect(hash['clubs']).to eql nil
+    expect(hash['matches']).to eql nil
+    expect(hash['leader_board']).to eql nil
+    expect(hash['referees']).to eql nil
   end
 end

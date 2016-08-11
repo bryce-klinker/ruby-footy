@@ -25,7 +25,7 @@ get '/leagues/:league_name/seasons/:start_year/:end_year' do
   league = league_gateway.get_by_name params['league_name']
 
   season = league.get_season params['start_year'], params['end_year']
-  season.to_json
+  season.to_json(params['include'])
 end
 
 get '/leagues/:league_name/seasons/:start_year/:end_year/clubs' do

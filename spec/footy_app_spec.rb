@@ -44,9 +44,49 @@ describe 'FootyApp' do
     expect(season['league_name']).to eql 'Premier League'
     expect(season['start_year']).to eql 2015
     expect(season['end_year']).to eql 2016
+    expect(season['clubs']).to eql nil
+    expect(season['matches']).to eql nil
+    expect(season['referees']).to eql nil
+    expect(season['leader_board']).to eql nil
 
     expect_successful_response
     expect_content_type_json
+  end
+
+  it 'should return season with clubs data' do
+    get '/leagues/Premier_League/seasons/2015/2016?include=clubs'
+
+    season = get_response_as_hash
+    expect(season['clubs'].length).to be 20
+  end
+
+  it 'should return season with leader board data' do
+    get '/leagues/Premier_League/seasons/2015/2016?include=leader_board'
+
+    season = get_response_as_hash
+    expect(season['leader_board'].length).to be 20
+  end
+
+  it 'should return season with referee data' do
+    get '/leagues/Premier_League/seasons/2015/2016?include=referees'
+
+    season = get_response_as_hash
+    expect(season['referees'].length).to be 19
+  end
+
+  it 'should return season with match data' do
+    get '/leagues/Premier_League/seasons/2015/2016?include=matches'
+
+    season = get_response_as_hash
+    expect(season['matches'].length).to be 380
+  end
+
+  it 'should return season with match and club data' do
+    get '/leagues/Premier_League/seasons/2015/2016?include=clubs,matches'
+
+    season = get_response_as_hash
+    expect(season['matches'].length).to be 380
+    expect(season['clubs'].length).to be 20
   end
 
   it 'should respond successfully to requests for seasons' do

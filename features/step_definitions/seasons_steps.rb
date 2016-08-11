@@ -2,6 +2,11 @@ require './src/seasons/season'
 require './src/seasons/season_gateway'
 require './src/shared/footy_config'
 
+When(/^I get season (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_name|
+  get "/leagues/#{league_name.gsub(' ', '_')}/seasons/#{start_year}/#{end_year}"
+  @season = get_response_as_hash
+end
+
 When(/^I get season (\d+)_(\d+) (.*) season with all related data$/) do |start_year, end_year, league_name|
   get "/leagues/#{league_name.gsub(' ', '_')}/seasons/#{start_year}/#{end_year}?include=clubs,matches,referees,leader_board"
   @season = get_response_as_hash
@@ -56,4 +61,21 @@ Then(/^I should get (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_
     .select{ |s| s.league_name == league_name }
 
   expect(seasons.length).to eql 1
+end
+
+
+Then(/^I should not get clubs$/) do
+  expect(@season['clubs']).to eql nil
+end
+
+Then(/^I should not get leader board$/) do
+  expect(@season['leader_board']).to eql nil
+end
+
+Then(/^I should not get matches$/) do
+  expect(@season['matches']).to eql nil
+end
+
+Then(/^I should not get referees$/) do
+  expect(@season['referees']).to eql nil
 end

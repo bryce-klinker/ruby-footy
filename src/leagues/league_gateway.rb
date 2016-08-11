@@ -14,6 +14,6 @@ class LeagueGateway
   end
 
   def get_by_name(league_name)
-    get_all.select{ |l| l.name == league_name}.first
+    get_all.select{ |l| l.name == league_name.gsub('_', ' ')}.first
   end
 end

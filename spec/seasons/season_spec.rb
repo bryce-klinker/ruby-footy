@@ -64,7 +64,11 @@ describe 'Season' do
 
   def expect_season_as_json(json, season)
     hash = JSON.parse json
+    expect(hash['league_name']).to eql season.league_name
     expect(hash['start_year']).to eql season.start_year
     expect(hash['end_year']).to eql season.end_year
+    expect(hash['clubs'].length).to eql season.clubs.length
+    expect(hash['leader_board'].length).to eql season.leader_board.length
+    expect(hash['referees'].length).to eql season.referees.length
   end
 end

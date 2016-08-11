@@ -46,7 +46,11 @@ class Season
   def to_json(*args)
     {
         :start_year => start_year,
-        :end_year => end_year
+        :end_year => end_year,
+        :league_name => league_name,
+        :clubs => clubs,
+        :leader_board => leader_board,
+        :referees => referees
     }.to_json(*args)
   end
 end

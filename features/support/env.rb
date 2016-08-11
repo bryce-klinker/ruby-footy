@@ -7,7 +7,7 @@ FootyConfig.load(test_config_path)
 
 module KnowsFootyApp
   def app
-    Footy.new
+    Sinatra::Application
   end
 end
 

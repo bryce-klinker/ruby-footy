@@ -12,6 +12,12 @@ describe 'League' do
     expect_league_as_json json, @league
   end
 
+  it 'should get season for start and end year' do
+    season = @league.get_season '2015', '2016'
+    expect(season.start_year).to eql 2015
+    expect(season.end_year).to eql 2016
+  end
+
   def expect_league_as_json(json, league)
     hash = JSON.parse json
     expect(hash['name']).to eql league.name

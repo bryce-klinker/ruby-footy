@@ -15,6 +15,12 @@ class League
     @season_gateway = SeasonGateway.new seasons_directory
   end
 
+  def get_season(start_year, end_year)
+    seasons.select{ |s| s.start_year == start_year.to_i }
+      .select{ |s| s.end_year == end_year.to_i }
+      .first
+  end
+
   def to_json(*args)
     {
         :name => name,

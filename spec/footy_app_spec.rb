@@ -37,6 +37,18 @@ describe 'FootyApp' do
     expect_content_type_json
   end
 
+  it 'should response successfully to requests for season' do
+    get '/leagues/Premier_League/seasons/2015/2016'
+
+    season = get_response_as_hash
+    expect(season['league_name']).to eql 'Premier League'
+    expect(season['start_year']).to eql 2015
+    expect(season['end_year']).to eql 2016
+
+    expect_successful_response
+    expect_content_type_json
+  end
+
   def expect_successful_response
     expect(last_response.status).to eql 200
   end

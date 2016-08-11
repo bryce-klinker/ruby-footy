@@ -50,7 +50,8 @@ class Season
         :league_name => league_name,
         :clubs => clubs,
         :leader_board => leader_board,
-        :referees => referees
+        :referees => referees,
+        :matches => matches
     }.to_json(*args)
   end
 end

@@ -8,7 +8,7 @@ end
 
 Then(/^I should get Premier League referees for the 2015\/2016 season$/) do
   expect(@referees.length).to eql 19
-  @referee_names = @referees.collect{ |r| r['name'] }
+  @referee_names = @referees.collect{ |r| r.name }
 
   expect(@referee_names).to include 'M Clattenburg'
   expect(@referee_names).to include 'M Oliver'
@@ -76,15 +76,15 @@ Then(/^I should get yellow cards given per referee$/) do
 end
 
 def get_referee_by_name(referee_name)
-  @referees.select { |r| r['name'] == referee_name }.first
+  @referees.select { |r| r.name == referee_name }.first
 end
 
 def expect_referee_red_cards_given(referee_name, red_cards_given)
   referee = get_referee_by_name(referee_name)
-  expect(referee['red_cards_given']).to eql red_cards_given
+  expect(referee.red_cards_given).to eql red_cards_given
 end
 
 def expect_referee_yellow_cards_given(referee_name, yellow_cards_given)
   referee = get_referee_by_name referee_name
-  expect(referee['yellow_cards_given']).to eql yellow_cards_given
+  expect(referee.yellow_cards_given).to eql yellow_cards_given
 end

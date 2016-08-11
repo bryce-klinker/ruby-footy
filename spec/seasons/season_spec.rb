@@ -70,5 +70,6 @@ describe 'Season' do
     expect(hash['clubs'].length).to eql season.clubs.length
     expect(hash['leader_board'].length).to eql season.leader_board.length
     expect(hash['referees'].length).to eql season.referees.length
+    expect(hash['matches'].length).to eql season.matches.length
   end
 end

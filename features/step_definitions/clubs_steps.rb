@@ -13,7 +13,7 @@ Then(/^I should get Premier League clubs for the 2015_2016 season$/) do
 end
 
 Then(/^I should get each club's name$/) do
-  club_names = @clubs.map { |c| c['name'] }
+  club_names = @clubs.map { |c| c.name }
 
   expect(club_names).to include 'Arsenal'
   expect(club_names).to include 'Aston Villa'
@@ -199,40 +199,40 @@ Then(/^I should get each club's goal differential$/) do
 end
 
 def get_club_by_name(club_name)
-  @clubs.select { |c| c['name'] == club_name }.first
+  @clubs.select { |c| c.name == club_name }.first
 end
 
 def expect_club_to_have_wins(club_name, wins)
   club = get_club_by_name club_name
-  expect(club['wins']).to eql wins
+  expect(club.wins).to eql wins
 end
 
 def expect_club_to_have_draws(club_name, draws)
   club = get_club_by_name club_name
-  expect(club['draws']).to eql draws
+  expect(club.draws).to eql draws
 end
 
 def expect_club_to_have_losses(club_name, losses)
   club = get_club_by_name club_name
-  expect(club['losses']).to eql losses
+  expect(club.losses).to eql losses
 end
 
 def expect_club_to_have_points(club_name, points)
   club = get_club_by_name club_name
-  expect(club['points']).to eql points
+  expect(club.points).to eql points
 end
 
 def expect_club_to_have_goals_allowed(club_name, goals_allowed)
   club = get_club_by_name club_name
-  expect(club['goals_allowed']).to eql goals_allowed
+  expect(club.goals_allowed).to eql goals_allowed
 end
 
 def expect_club_to_have_goals_scored(club_name, goals_scored)
   club = get_club_by_name club_name
-  expect(club['goals_scored']).to eql goals_scored
+  expect(club.goals_scored).to eql goals_scored
 end
 
 def expect_club_to_have_goal_differential(club_name, goal_differential)
   club = get_club_by_name club_name
-  expect(club['goal_differential']).to eql goal_differential
+  expect(club.goal_differential).to eql goal_differential
 end

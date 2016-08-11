@@ -1,10 +1,11 @@
 require 'rack/test'
 require 'sinatra'
-require './src/footy_app'
 require './src/shared/footy_config'
 
 test_config_path = File.expand_path './config.test.yml'
 FootyConfig.load(test_config_path)
+
+require './src/footy_app'
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods

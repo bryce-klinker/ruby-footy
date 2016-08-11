@@ -23,6 +23,11 @@ describe 'LeagueGateway' do
     expect(league.name).to eql 'Premier League'
   end
 
+  it 'should get league by name when "_" are in name' do
+    league = @league_gateway.get_by_name 'Premier_League'
+    expect(league.name).to eql 'Premier League'
+  end
+
   it 'should get seasons for league' do
     league = @league_gateway.get_by_name 'Premier League'
     expect(league.seasons.length).to eql 2

@@ -6,7 +6,6 @@ gem 'rack', '~> 1.5'
 gem 'sinatra'
 
 group :test do
-  gem 'activesupport'
   gem 'rack-test'
   gem 'cucumber'
   gem 'rspec'

@@ -1,3 +1,5 @@
+require 'json'
+
 class Referee
   def name
     @name
@@ -24,5 +26,11 @@ class Referee
   def initialize(name, all_matches)
     @name = name
     @all_matches = all_matches
+  end
+
+  def to_json(*args)
+    {
+        :name => name
+    }.to_json(*args)
   end
 end

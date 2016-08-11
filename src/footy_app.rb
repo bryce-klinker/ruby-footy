@@ -13,5 +13,6 @@ get '/seasons/:start_year/:end_year/:league_name/clubs' do
 end
 
 get '/leagues' do
+  content_type :json
   league_gateway.get_all.map{ |l| l.to_json }.to_json
 end

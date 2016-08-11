@@ -3,7 +3,7 @@ require './src/shared/footy_config'
 require 'json'
 
 When(/^I get all clubs for (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_name|
-  get "/seasons/#{start_year}/#{end_year}/#{league_name.gsub(' ', '_')}/clubs"
+  get "/seasons/#{league_name.gsub(' ', '_')}/#{start_year}/#{end_year}/clubs"
   @clubs = get_response_as_hash
 end
 

@@ -3,8 +3,8 @@ require './src/seasons/season_gateway'
 require './src/shared/footy_config'
 
 When(/^I get season (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_name|
-  season_path = File.expand_path "#{FootyConfig.seasons_directory}/2015_2016_Premier_League.csv", __FILE__
-  @season = Season.new season_path
+  get "/seasons/#{league_name.gsub(' ', '_')}/#{start_year}/#{end_year}"
+  @season = get_response_as_hash
 end
 
 When(/^I get (.*) seasons$/) do |league_name|

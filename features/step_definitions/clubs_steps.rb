@@ -4,10 +4,12 @@ require './src/shared/footy_config'
 When(/^I get all clubs for (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_name|
   season_path = File.expand_path "#{FootyConfig.seasons_directory}/#{start_year}_#{end_year}_#{league_name.gsub(' ', '_')}.csv", __FILE__
   season = Season.new season_path
-  @clubs = season.clubs
+  get "/seasons/#{start_year}/#{end_year}/#{league_name.gsub(' ', '_')}/clubs"
+  @clubs = MultiJson.load last_response.body
 end
 
 Then(/^I should get Premier League clubs for the 2015_2016 season$/) do
+  expect(last_response.status).to eql 200
   expect(@clubs.size).to eq 20
 end
 

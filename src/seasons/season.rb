@@ -44,7 +44,6 @@ class Season
   end
 
   def to_json(*args)
-    puts args
     {
         :start_year => start_year,
         :end_year => end_year,

@@ -15,9 +15,10 @@ class League
     @season_gateway = SeasonGateway.new seasons_directory
   end
 
-  def to_json
+  def to_json(*args)
     {
-        :name => name
-    }.to_json
+        :name => name,
+        :seasons => seasons
+    }.to_json(*args)
   end
 end

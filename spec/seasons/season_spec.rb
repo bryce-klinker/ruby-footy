@@ -1,5 +1,6 @@
 require './src/seasons/season'
 require './src/shared/footy_config'
+require 'json'
 
 describe 'Season' do
   before do
@@ -54,5 +55,16 @@ describe 'Season' do
   it 'should get match host' do
     expect(@season.matches[0].host).to eql 'Bournemouth'
     expect(@season.matches[1].host).to eql 'Chelsea'
+  end
+
+  it 'should get season as json' do
+    json = @season.to_json
+    expect_season_as_json json, @season
+  end
+
+  def expect_season_as_json(json, season)
+    hash = JSON.parse json
+    expect(hash['start_year']).to eql season.start_year
+    expect(hash['end_year']).to eql season.end_year
   end
 end

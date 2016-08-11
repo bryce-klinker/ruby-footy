@@ -2,6 +2,7 @@ require_relative '../clubs/club_gateway'
 require_relative '../referees/referee_gateway'
 require_relative '../matches/match_gateway'
 require_relative '../shared/csv_path_helper'
+require 'json'
 
 class Season
   def start_year
@@ -40,5 +41,12 @@ class Season
     @club_gateway = ClubGateway.new csv_path
     @referee_gateway = RefereeGateway.new csv_path
     @match_gateway = MatchGateway.new csv_path
+  end
+
+  def to_json(*args)
+    {
+        :start_year => start_year,
+        :end_year => end_year
+    }.to_json(*args)
   end
 end

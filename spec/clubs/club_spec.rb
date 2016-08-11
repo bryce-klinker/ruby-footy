@@ -1,5 +1,6 @@
 require './src/clubs/club_gateway'
 require './src/clubs/club'
+require 'json'
 
 describe 'Club' do
   before do
@@ -9,7 +10,20 @@ describe 'Club' do
   end
 
   it 'should create hash of club' do
-    hash = @club.to_json
-    expect(hash[:name]).to eql 'Arsenal'
+    json = @club.to_json
+    expect_club_as_json json, @club
   end
+
+  def expect_club_as_json(json, club)
+    hash = JSON.parse json
+    expect(hash['name']).to eql club.name
+    expect(hash['wins']).to eql club.wins
+    expect(hash['draws']).to eql club.draws
+    expect(hash['losses']).to eql club.losses
+    expect(hash['points']).to eql club.points
+    expect(hash['goals_allowed']).to eql club.goals_allowed
+    expect(hash['goals_scored']).to eql club.goals_scored
+    expect(hash['goal_differential']).to eql club.goal_differential
+  end
+
 end

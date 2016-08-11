@@ -1,3 +1,5 @@
+require 'json'
+
 class Club
   def name
     @name
@@ -43,5 +45,12 @@ class Club
   def initialize(name, all_matches)
     @name = name
     @all_matches = all_matches
+  end
+
+  def to_json
+    {
+        :name => name,
+        :wins => wins
+    }.to_json
   end
 end

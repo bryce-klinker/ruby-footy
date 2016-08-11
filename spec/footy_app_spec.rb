@@ -44,10 +44,10 @@ describe 'FootyApp' do
     expect(season['league_name']).to eql 'Premier League'
     expect(season['start_year']).to eql 2015
     expect(season['end_year']).to eql 2016
-    expect(season['clubs']).to eql []
-    expect(season['matches']).to eql []
-    expect(season['referees']).to eql []
-    expect(season['leader_board']).to eql []
+    expect(season['clubs']).to eql nil
+    expect(season['matches']).to eql nil
+    expect(season['referees']).to eql nil
+    expect(season['leader_board']).to eql nil
 
     expect_successful_response
     expect_content_type_json

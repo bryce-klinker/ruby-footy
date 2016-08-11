@@ -98,9 +98,9 @@ describe 'Season' do
     expect(hash['league_name']).to eql season.league_name
     expect(hash['start_year']).to eql season.start_year
     expect(hash['end_year']).to eql season.end_year
-    expect(hash['clubs']).to eql []
-    expect(hash['matches']).to eql []
-    expect(hash['leader_board']).to eql []
-    expect(hash['referees']).to eql []
+    expect(hash['clubs']).to eql nil
+    expect(hash['matches']).to eql nil
+    expect(hash['leader_board']).to eql nil
+    expect(hash['referees']).to eql nil
   end
 end

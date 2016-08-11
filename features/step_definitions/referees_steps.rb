@@ -3,7 +3,7 @@ require './src/shared/footy_config'
 
 When(/^I get all referees for (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_name|
   get '/seasons/2015/2016/Premier_League/referees'
-  @referees = get_response_as_json
+  @referees = get_response_as_hash
 end
 
 Then(/^I should get Premier League referees for the 2015\/2016 season$/) do

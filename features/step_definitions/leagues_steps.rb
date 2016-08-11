@@ -4,12 +4,12 @@ require 'json'
 
 When(/^I get leagues$/) do
   get '/leagues'
-  @leagues = get_response_as_json
+  @leagues = get_response_as_hash
 end
 
 When(/^I get league (.*)$/) do |league_name|
   get "/leagues/#{league_name.gsub(' ', '_')}"
-  @league = get_response_as_json
+  @league = get_response_as_hash
 end
 
 Then(/^I should get the league (.*)$/) do |league_name|

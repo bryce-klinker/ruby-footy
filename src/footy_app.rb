@@ -23,5 +23,5 @@ get '/leagues/:league_name' do
 end
 
 get '/seasons/:start_year/:end_year/:league_name/referees' do
-  
+
 end

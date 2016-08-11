@@ -21,3 +21,7 @@ end
 get '/leagues/:league_name' do
   league_gateway.get_by_name(params['league_name']).to_json
 end
+
+get '/seasons/:start_year/:end_year/:league_name/referees' do
+  
+end

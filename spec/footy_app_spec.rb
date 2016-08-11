@@ -43,4 +43,9 @@ describe 'FootyApp' do
     league = JSON.parse last_response.body
     expect(league['name']).to eql 'Championship'
   end
+
+  it 'should respond successfully to requests for referees for a season' do
+    get '/seasons/2015/2016/Premier_League/referees'
+    expect(last_response.status).to eql 200
+  end
 end

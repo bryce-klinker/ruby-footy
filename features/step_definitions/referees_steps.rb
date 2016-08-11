@@ -2,14 +2,13 @@ require './src/seasons/season'
 require './src/shared/footy_config'
 
 When(/^I get all referees for (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_name|
-  season_path = File.expand_path "#{FootyConfig.seasons_directory}/#{start_year}_#{end_year}_#{league_name.gsub(' ', '_')}.csv", __FILE__
-  season = Season.new season_path
-  @referees = season.referees
+  get '/seasons/2015/2016/Premier_League/referees'
+  @referees = get_response_as_json
 end
 
 Then(/^I should get Premier League referees for the 2015\/2016 season$/) do
   expect(@referees.length).to eql 19
-  @referee_names = @referees.collect{ |r| r.name }
+  @referee_names = @referees.collect{ |r| r['name'] }
 
   expect(@referee_names).to include 'M Clattenburg'
   expect(@referee_names).to include 'M Oliver'
@@ -78,10 +77,10 @@ end
 
 def expect_referee_red_cards_given(referee_name, red_cards_given)
   referee = @referees.select{ |r| r.name == referee_name }.first
-  expect(referee.red_cards_given).to eql red_cards_given
+  expect(referee['red_cards_given']).to eql red_cards_given
 end
 
 def expect_referee_yellow_cards_given(referee_name, yellow_cards_given)
   referee = @referees.select{ |r| r.name == referee_name }.first
-  expect(referee.yellow_cards_given).to eql yellow_cards_given
+  expect(referee['yellow_cards_given']).to eql yellow_cards_given
 end

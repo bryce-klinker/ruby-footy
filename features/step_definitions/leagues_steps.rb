@@ -18,8 +18,8 @@ Then(/^I should get the league (.*)$/) do |league_name|
 end
 
 Then(/^I should get (\d+)_(\d+) season$/) do |start_year, end_year|
-  seasons = @league.seasons.select{ |s| s.start_year == start_year.to_i }
-    .select{ |s| s.end_year == end_year.to_i }
+  seasons = @league['seasons'].select{ |s| s['start_year'] == start_year.to_i }
+    .select{ |s| s['end_year'] == end_year.to_i }
 
   expect(seasons.length).to eql 1
 end

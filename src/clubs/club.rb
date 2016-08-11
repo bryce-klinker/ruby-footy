@@ -47,7 +47,7 @@ class Club
     @all_matches = all_matches
   end
 
-  def to_json
+  def to_json(*args)
     {
         :name => name,
         :wins => wins,
@@ -57,6 +57,6 @@ class Club
         :goals_allowed => goals_allowed,
         :goals_scored => goals_scored,
         :goal_differential => goal_differential
-    }.to_json
+    }.to_json(*args)
   end
 end

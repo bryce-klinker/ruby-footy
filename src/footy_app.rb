@@ -10,12 +10,12 @@ league_gateway = LeagueGateway.new FootyConfig.seasons_directory
 get '/seasons/:start_year/:end_year/:league_name/clubs' do
   content_type :json
   season = season_gateway.get_season(params['start_year'], params['end_year'], params['league_name'])
-  season.clubs.map{ |c| c.to_json }.to_json
+  season.clubs.to_json
 end
 
 get '/leagues' do
   content_type :json
-  league_gateway.get_all.map{ |l| l.to_json }.to_json
+  league_gateway.get_all.to_json
 end
 
 get '/leagues/:league_name' do

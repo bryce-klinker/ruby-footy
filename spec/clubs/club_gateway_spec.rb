@@ -1,5 +1,4 @@
 require './src/clubs/club_gateway'
-require './src/shared/footy_config'
 
 describe 'ClubGateway' do
   before do

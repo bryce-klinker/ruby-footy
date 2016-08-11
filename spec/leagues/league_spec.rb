@@ -3,7 +3,7 @@ require 'json'
 
 describe 'League' do
   before do
-    league_gateway = LeagueGateway.new FootyConfig.seasons_directory
+    league_gateway = LeagueGateway.new ENV['SEASONS_DIRECTORY']
     @league = league_gateway.get_all.first
   end
 

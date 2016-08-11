@@ -1,5 +1,4 @@
 require './src/referees/referee_gateway'
-require './src/shared/footy_config'
 
 describe 'RefereeGateway' do
   before do

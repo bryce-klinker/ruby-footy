@@ -1,5 +1,4 @@
 require './src/leagues/league_gateway'
-require './src/shared/footy_config'
 require 'json'
 
 When(/^I get leagues$/) do

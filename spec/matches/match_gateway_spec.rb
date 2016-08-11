@@ -1,5 +1,4 @@
 require './src/matches/match_gateway'
-require './src/shared/footy_config'
 
 describe 'MatchGateway' do
   before do

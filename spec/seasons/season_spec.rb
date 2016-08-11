@@ -1,5 +1,4 @@
 require './src/seasons/season'
-require './src/shared/footy_config'
 require 'json'
 
 describe 'Season' do

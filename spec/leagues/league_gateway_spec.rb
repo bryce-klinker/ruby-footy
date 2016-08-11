@@ -1,10 +1,8 @@
 require './src/leagues/league_gateway'
-require './src/shared/footy_config'
 
 describe 'LeagueGateway' do
   before do
-    seasons_path = FootyConfig.seasons_directory
-    @league_gateway = LeagueGateway.new seasons_path
+    @league_gateway = LeagueGateway.new ENV['SEASONS_DIRECTORY']
   end
 
   it 'should get all leagues' do

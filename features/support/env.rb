@@ -1,10 +1,8 @@
-require './src/shared/footy_config'
+ENV['SEASONS_DIRECTORY'] = File.expand_path './test_data/seasons'
+
 require 'rack/test'
-
-test_config_path = File.expand_path './config.test.yml'
-FootyConfig.load(test_config_path)
-
 require './src/footy_app'
+
 module KnowsFootyApp
   def app
     Sinatra::Application

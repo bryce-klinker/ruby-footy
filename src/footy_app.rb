@@ -1,9 +1,8 @@
 require 'sinatra'
 require 'json'
 require_relative 'leagues/league_gateway'
-require_relative 'shared/footy_config'
 
-league_gateway = LeagueGateway.new FootyConfig.seasons_directory
+league_gateway = LeagueGateway.new ENV['SEASONS_DIRECTORY']
 
 get '/leagues' do
   content_type :json

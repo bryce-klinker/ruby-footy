@@ -1,5 +1,4 @@
 require './src/seasons/season'
-require './src/shared/footy_config'
 require 'json'
 
 When(/^I get all clubs for (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_name|

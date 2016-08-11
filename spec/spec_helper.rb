@@ -1,10 +1,7 @@
+ENV['SEASONS_DIRECTORY'] = File.expand_path './test_data/seasons'
+
 require 'rack/test'
 require 'sinatra'
-require './src/shared/footy_config'
-
-test_config_path = File.expand_path './config.test.yml'
-FootyConfig.load(test_config_path)
-
 require './src/footy_app'
 
 RSpec.configure do |config|
@@ -17,5 +14,5 @@ end
 
 def get_season_csv_path(start_year, end_year, league_name)
   file_name = "#{start_year}_#{end_year}_#{league_name.gsub(' ', '_')}.csv"
-  File.expand_path "#{FootyConfig.seasons_directory}/#{file_name}", __FILE__
+  File.expand_path "#{ENV['SEASONS_DIRECTORY']}/#{file_name}", __FILE__
 end

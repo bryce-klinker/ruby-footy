@@ -44,14 +44,19 @@ class Season
   end
 
   def to_json(*args)
+    puts args
     {
         :start_year => start_year,
         :end_year => end_year,
         :league_name => league_name,
-        :clubs => clubs,
-        :leader_board => leader_board,
-        :referees => referees,
-        :matches => matches
+        :clubs => include(*args, 'clubs') ? clubs : [],
+        :leader_board => include(*args, 'leader_board') ? leader_board : [],
+        :referees => include(*args, 'referees') ? referees : [],
+        :matches => include(*args, 'matches') ? matches : []
     }.to_json(*args)
+  end
+
+  private def include(*args, property_name)
+    args && args.kind_of?(Array) && args.length > 0 &&args[0].include?(property_name)
   end
 end

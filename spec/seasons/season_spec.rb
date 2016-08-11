@@ -68,14 +68,39 @@ describe 'Season' do
     expect(hash['matches'].length).to eql 380
   end
 
+  it 'should include club data in json' do
+    json = @season.to_json('clubs')
+    hash = JSON.parse json
+    expect(hash['clubs'].length).to eql 20
+  end
+
+  it 'should include leader board data in json' do
+    json = @season.to_json('leader_board')
+    hash = JSON.parse json
+    expect(hash['leader_board'].length).to eql 20
+  end
+
+  it 'should include referee data in json' do
+    json = @season.to_json('referees')
+    hash = JSON.parse json
+    expect(hash['referees'].length).to eql 19
+  end
+
+  it 'should inlucde referee and club data in json' do
+    json = @season.to_json('referees,clubs')
+    hash = JSON.parse json
+    expect(hash['referees'].length).to eql 19
+    expect(hash['clubs'].length).to eql 20
+  end
+
   def expect_season_as_json(json, season)
     hash = JSON.parse json
     expect(hash['league_name']).to eql season.league_name
     expect(hash['start_year']).to eql season.start_year
     expect(hash['end_year']).to eql season.end_year
-    expect(hash['clubs']).to eql nil
-    expect(hash['matches']).to eql nil
-    expect(hash['leader_board']).to eql nil
-    expect(hash['referees']).to eql nil
+    expect(hash['clubs']).to eql []
+    expect(hash['matches']).to eql []
+    expect(hash['leader_board']).to eql []
+    expect(hash['referees']).to eql []
   end
 end

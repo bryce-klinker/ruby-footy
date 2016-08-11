@@ -75,12 +75,16 @@ Then(/^I should get yellow cards given per referee$/) do
   expect_referee_yellow_cards_given 'P Tierney', 12
 end
 
+def get_referee_by_name(referee_name)
+  @referees.select { |r| r['name'] == referee_name }.first
+end
+
 def expect_referee_red_cards_given(referee_name, red_cards_given)
-  referee = @referees.select{ |r| r.name == referee_name }.first
+  referee = get_referee_by_name(referee_name)
   expect(referee['red_cards_given']).to eql red_cards_given
 end
 
 def expect_referee_yellow_cards_given(referee_name, yellow_cards_given)
-  referee = @referees.select{ |r| r.name == referee_name }.first
+  referee = get_referee_by_name referee_name
   expect(referee['yellow_cards_given']).to eql yellow_cards_given
 end

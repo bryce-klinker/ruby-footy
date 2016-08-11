@@ -30,7 +30,9 @@ class Referee
 
   def to_json(*args)
     {
-        :name => name
+        :name => name,
+        :red_cards_given => red_cards_given,
+        :yellow_cards_given => yellow_cards_given
     }.to_json(*args)
   end
 end

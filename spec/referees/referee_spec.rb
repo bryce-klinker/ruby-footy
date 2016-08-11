@@ -16,5 +16,7 @@ describe 'Referee' do
   def expect_referee_as_json(json, referee)
     hash = JSON.parse json
     expect(hash['name']).to eql referee.name
+    expect(hash['red_cards_given']).to eql referee.red_cards_given
+    expect(hash['yellow_cards_given']).to eql referee.yellow_cards_given
   end
 end

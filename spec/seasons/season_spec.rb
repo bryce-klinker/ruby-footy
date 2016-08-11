@@ -63,7 +63,7 @@ describe 'Season' do
   end
 
   it 'should include match data in json' do
-    json @season.to_json('matches')
+    json = @season.to_json('matches')
     hash = JSON.parse json
     expect(hash['matches'].length).to eql 380
   end

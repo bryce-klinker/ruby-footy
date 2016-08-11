@@ -50,7 +50,13 @@ class Club
   def to_json
     {
         :name => name,
-        :wins => wins
+        :wins => wins,
+        :draws => draws,
+        :losses => losses,
+        :points => points,
+        :goals_allowed => goals_allowed,
+        :goals_scored => goals_scored,
+        :goal_differential => goal_differential
     }.to_json
   end
 end

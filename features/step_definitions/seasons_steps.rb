@@ -8,8 +8,8 @@ When(/^I get season (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_
 end
 
 When(/^I get (.*) seasons$/) do |league_name|
-  season_gateway = SeasonGateway.new FootyConfig.seasons_directory
-  @league_seasons = season_gateway.get_by_league_name league_name
+  get "/leagues/#{league_name.gsub(' ', '_')}/seasons"
+  @league_seasons = get_response_as_hash
 end
 
 Then(/^I should get all 20 clubs in 2015_2016 Premier League season$/) do

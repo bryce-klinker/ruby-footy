@@ -1,10 +1,4 @@
-require 'sinatra/base'
+require 'sinatra'
 
-class Footy < Sinatra::Base
-  get '/' do
-    'Hello Footy!'
-  end
-
-  # start the server if ruby file executed directly
-  run! if app_file == $0
+get '/seasons/2015/2016/Premier_League/clubs' do
 end

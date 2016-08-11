@@ -4,12 +4,12 @@ require 'json'
 
 When(/^I get leagues$/) do
   get '/leagues'
-  @leagues = get_response_as_json_array
+  @leagues = get_response_as_array
 end
 
 When(/^I get league (.*)$/) do |league_name|
-  league_gateway = LeagueGateway.new FootyConfig.seasons_directory
-  @league = league_gateway.get_by_name league_name
+  get "/leagues/#{league_name.gsub(' ', '_')}"
+  @league = get_response_as_hash
 end
 
 Then(/^I should get the league (.*)$/) do |league_name|

@@ -32,4 +32,9 @@ describe 'FootyApp' do
     get '/leagues'
     expect(last_response.headers['content-type']).to eql 'application/json'
   end
+
+  it 'should respond successfully to requests for league' do
+    get '/leagues/Premier_League'
+    expect(last_response.status).to eql 200
+  end
 end

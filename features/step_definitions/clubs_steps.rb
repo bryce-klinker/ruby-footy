@@ -4,7 +4,7 @@ require 'json'
 
 When(/^I get all clubs for (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_name|
   get "/seasons/#{start_year}/#{end_year}/#{league_name.gsub(' ', '_')}/clubs"
-  @clubs = get_response_as_json_array
+  @clubs = get_response_as_array
 end
 
 Then(/^I should get Premier League clubs for the 2015_2016 season$/) do

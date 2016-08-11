@@ -2,7 +2,7 @@ require './src/seasons/season'
 require './src/seasons/season_gateway'
 require './src/shared/footy_config'
 
-When(/^I get season (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_name|
+When(/^I get season (\d+)_(\d+) (.*) season with all related data$/) do |start_year, end_year, league_name|
   get "/leagues/#{league_name.gsub(' ', '_')}/seasons/#{start_year}/#{end_year}"
   @season = get_response_as_hash
 end

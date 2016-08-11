@@ -1,9 +1,10 @@
 require './src/seasons/season'
 require './src/shared/footy_config'
+require 'json'
 
 When(/^I get all clubs for (\d+)_(\d+) (.*) season$/) do |start_year, end_year, league_name|
   get "/seasons/#{start_year}/#{end_year}/#{league_name.gsub(' ', '_')}/clubs"
-  @clubs = MultiJson.load last_response.body
+  @clubs = JSON.parse last_response.body
 end
 
 Then(/^I should get Premier League clubs for the 2015_2016 season$/) do

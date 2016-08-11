@@ -19,4 +19,5 @@ get '/leagues' do
 end
 
 get '/leagues/:league_name' do
+  league_gateway.get_by_name(params['league_name']).to_json
 end

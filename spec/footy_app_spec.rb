@@ -37,4 +37,10 @@ describe 'FootyApp' do
     get '/leagues/Premier_League'
     expect(last_response.status).to eql 200
   end
+
+  it 'should return league for request' do
+    get '/leagues/Championship'
+    league = JSON.parse last_response.body
+    expect(league['name']).to eql 'Championship'
+  end
 end

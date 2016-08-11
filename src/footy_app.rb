@@ -17,3 +17,6 @@ get '/leagues' do
   content_type :json
   league_gateway.get_all.map{ |l| l.to_json }.to_json
 end
+
+get '/leagues/:league_name' do
+end

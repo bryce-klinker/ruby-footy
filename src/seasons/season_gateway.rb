@@ -10,4 +10,9 @@ class SeasonGateway
       .map{ |f| Season.new(f)}
       .sort_by { |s| s.start_year }.reverse
   end
+
+  def get_season(start_year, end_year, league_name)
+    season_path = File.expand_path "#{@seasons_directory}/#{start_year}_#{end_year}_#{league_name.gsub(' ', '_')}.csv"
+    Season.new season_path
+  end
 end
